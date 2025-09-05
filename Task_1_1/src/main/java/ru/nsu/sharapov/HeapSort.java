@@ -3,9 +3,14 @@ package ru.nsu.sharapov;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 class Heap {
     ArrayList<Integer> heap;
 
+    /**
+     * Конструктор класса, преобразует массив в пирамиду
+     * @param array Любой входной массив целых чисел, который будет преобразован в неубывающую пирамиду
+     */
     public Heap(ArrayList<Integer> array) {
         heap = array;
         for (int i = array.size() / 2 - 1; i >= 0; --i) {
@@ -13,15 +18,22 @@ class Heap {
         }
     }
 
+    /**
+     * Извлекает минимальный элемент кучи
+     * @return Целое число, минимальный элемент кучи
+     */
     public int extract_min() {
-        int max = heap.getFirst();
+        int min = heap.getFirst();
         Collections.swap(heap, 0, heap.size() - 1);
         heap.removeLast();
         _siftdown(0);
-        return max;
-
+        return min;
     }
 
+    /**
+     * "Просеивание вниз" - просеивает элемент по заданному индексу до своей корректной позиции
+     * @param pos Индекс элемента, который необходимо "просеить" вниз по пирамиде
+     */
     public void _siftdown(int pos) {
         while (true) {
             int curr = pos;
@@ -40,6 +52,11 @@ class Heap {
 
 
 public class HeapSort {
+    /**
+     * Сортирует массив целых чисел по возрастанию с использованием пирамидальной сортировки
+     * @param args Элементы неостортированного массива
+     * @return Возвращает отсортированный массив
+     */
     public static Integer[] sort(ArrayList<Integer> args) {
         Heap myheap = new Heap(args);
         ArrayList<Integer> actual = new ArrayList<>();
