@@ -50,7 +50,9 @@ class Heap {
     }
 }
 
-
+/**
+ * Класс сортировки
+ */
 public class HeapSort {
     /**
      * Сортирует массив целых чисел по возрастанию с использованием пирамидальной сортировки
@@ -67,6 +69,10 @@ public class HeapSort {
         return actual.toArray(new Integer[0]);
     }
 
+    /**
+     * Сортирует массив и выводит результат
+     * @param args Строковый массив чисел
+     */
     public static void main(String[] args) {
         ArrayList<Integer> integers = new ArrayList<>();
         for (String i : args) {
