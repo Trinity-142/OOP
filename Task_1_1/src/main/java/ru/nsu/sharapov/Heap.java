@@ -3,6 +3,9 @@ package ru.nsu.sharapov;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Класс пирамиды.
+ */
 public class Heap {
     ArrayList<Integer> heap;
 
@@ -10,7 +13,7 @@ public class Heap {
      * Конструктор класса, преобразует массив в пирамиду.
      *
      * @param array Любой входной массив целых чисел,
-     * который будет преобразован в неубывающую пирамиду
+     *              который будет преобразован в неубывающую пирамиду
      */
     public Heap(ArrayList<Integer> array) {
         heap = array;

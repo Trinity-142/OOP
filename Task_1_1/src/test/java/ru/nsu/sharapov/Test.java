@@ -1,10 +1,12 @@
 package ru.nsu.sharapov;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SampleTest {
 
@@ -31,6 +33,7 @@ class SampleTest {
         Integer[] expected = {0, 1, 2, 3, 4, 5};
         assertArrayEquals(actual, expected);
     }
+
     @Test
     void checkSort4() {
         String[] test = {"1", "2", "5", "3"};
