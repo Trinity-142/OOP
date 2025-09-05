@@ -31,7 +31,7 @@ class SampleTest {
         Integer[] expected = {0, 1, 2, 3, 4, 5};
         assertArrayEquals(actual, expected);
     }
-
+    @Test
     void checkSort4() {
         String[] test = {"1", "2", "5", "3"};
         HeapSort.main(test);
