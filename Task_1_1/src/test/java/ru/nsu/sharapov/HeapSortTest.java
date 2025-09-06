@@ -1,42 +1,55 @@
 package ru.nsu.sharapov;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 class HeapSortTest {
 
     @Test
     void checkSort1() {
-        ArrayList<Integer> test = new ArrayList<>(Arrays.asList(10, 3, 15, 4, 2));
-        Integer[] actual = HeapSort.sort(test);
-        Integer[] expected = {2, 3, 4, 10, 15};
+        int[] test = {10, 3, 15, 4, 2};
+        int[] actual = HeapSort.sort(test);
+        int[] expected = {2, 3, 4, 10, 15};
         assertArrayEquals(actual, expected);
     }
 
     @Test
     void checkSort2() {
-        ArrayList<Integer> test = new ArrayList<>(Arrays.asList(9, 1, 20, 6, 9, 13));
-        Integer[] actual = HeapSort.sort(test);
-        Integer[] expected = {1, 6, 9, 9, 13, 20};
+        int[] test = {9, 1, 20, 6, 9, 13};
+        int[] actual = HeapSort.sort(test);
+        int[] expected = {1, 6, 9, 9, 13, 20};
         assertArrayEquals(actual, expected);
     }
 
     @Test
-    void checkSort3() {
-        ArrayList<Integer> test = new ArrayList<>(Arrays.asList(5, 4, 3, 2, 1, 0));
-        Integer[] actual = HeapSort.sort(test);
-        Integer[] expected = {0, 1, 2, 3, 4, 5};
+    void reverseSorted() {
+        int[] test = {5, 4, 3, 2, 1, 0};
+        int[] actual = HeapSort.sort(test);
+        int[] expected = {0, 1, 2, 3, 4, 5};
         assertArrayEquals(actual, expected);
     }
 
     @Test
-    void checkSort4() {
-        String[] test = {"1", "2", "5", "3"};
-        HeapSort.main(test);
-        assertTrue(true);
+    void voidArray() {
+        int[] input = {};
+        int[] expected = {};
+        assertArrayEquals(HeapSort.sort(input), expected);
     }
+
+    @Test
+    void sameValues() {
+        int[] input = {5, 5, 5, 5, 5};
+        int[] expected = {5, 5, 5, 5, 5};
+        assertArrayEquals(HeapSort.sort(input), expected);
+    }
+
+    @Test
+    void negativeNumbers() {
+        int[] input = {-42, -142, 0, 42, -100};
+        int[] expected = {-142, -100, -42, 0, 42};
+        assertArrayEquals(HeapSort.sort(input), expected);
+    }
+
+
 }
