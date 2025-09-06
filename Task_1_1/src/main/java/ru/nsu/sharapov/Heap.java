@@ -7,13 +7,14 @@ import java.util.Collections;
  * Класс пирамиды.
  */
 public class Heap {
+
     ArrayList<Integer> heap;
 
     /**
      * Конструктор класса, преобразует массив в пирамиду.
      *
-     * @param array Любой входной массив целых чисел,
-     *              который будет преобразован в неубывающую пирамиду
+     * @param array Любой входной массив целых чисел, который будет преобразован в неубывающую
+     *              пирамиду
      */
     public Heap(ArrayList<Integer> array) {
         heap = array;
@@ -45,13 +46,19 @@ public class Heap {
             int curr = pos;
             int left = 2 * pos + 1;
             int right = 2 * pos + 2;
-            if (left < heap.size() && heap.get(left) < heap.get(curr)) curr = left;
-            if (right < heap.size() && heap.get(right) < heap.get(curr) && heap.get(right) < heap.get(left))
+            if (left < heap.size() && heap.get(left) < heap.get(curr)) {
+                curr = left;
+            }
+            if (right < heap.size() && heap.get(right) < heap.get(curr)
+                && heap.get(right) < heap.get(left)) {
                 curr = right;
+            }
             if (curr != pos) {
                 Collections.swap(heap, pos, curr);
                 pos = curr;
-            } else break;
+            } else {
+                break;
+            }
         }
     }
 }
