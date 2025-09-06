@@ -1,6 +1,6 @@
 package ru.nsu.sharapov;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Класс сортировки.
@@ -14,11 +14,7 @@ public class HeapSort {
      * @return Возвращает отсортированный массив
      */
     public static int[] sort(int[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i : args) {
-            list.add(i);
-        }
-        Heap myheap = new Heap(list);
+        Heap myheap = new Heap(args);
         int len = myheap.heap.size();
         int[] actual = new int[len];
         for (int i = 0; i < len; i++) {
@@ -38,10 +34,7 @@ public class HeapSort {
             integers[i] = Integer.parseInt(args[i]);
         }
         int[] res = sort(integers);
-        for (int i : res) {
-            System.out.printf("%d ", i);
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(res));
     }
 }
 

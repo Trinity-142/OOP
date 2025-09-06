@@ -16,9 +16,13 @@ public class Heap {
      * @param array Любой входной массив целых чисел, который будет преобразован в неубывающую
      *              пирамиду
      */
-    public Heap(ArrayList<Integer> array) {
-        heap = array;
-        for (int i = array.size() / 2 - 1; i >= 0; --i) {
+    public Heap(int[] array) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i : array) {
+            list.add(i);
+        }
+        heap = list;
+        for (int i = list.size() / 2 - 1; i >= 0; --i) {
             siftdown(i);
         }
     }
