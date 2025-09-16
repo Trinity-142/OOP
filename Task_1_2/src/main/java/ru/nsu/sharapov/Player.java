@@ -3,6 +3,9 @@ package ru.nsu.sharapov;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Класс игрока в блекджек.
+ */
 public class Player {
 
     public int sum;
@@ -10,6 +13,12 @@ public class Player {
     int aces;
     int score;
 
+    /**
+     * Взять карту из колоды.
+     *
+     * @param deck Колода карт
+     * @return Взятая карта
+     */
     public Card getCard(CardDeck deck) {
         Card card = deck.giveCard();
         hand.add(card);
@@ -24,10 +33,21 @@ public class Player {
         return card;
     }
 
+    /**
+     * Возвращает строковое представление объекта. Переопределяет стандартную реализацию метода
+     * toString() класса Object.
+     *
+     * @return Строковое представление объекта в формате: [карты на руках игрока] => сумма очков
+     */
     public String toString() {
         return hand.toString() + " => " + sum;
     }
 
+    /**
+     * Раздает новые карты игроку, не обнуляет его счёт по раундам.
+     *
+     * @param deck Колода карт
+     */
     public void reset(CardDeck deck) {
         this.hand.clear();
         this.aces = 0;

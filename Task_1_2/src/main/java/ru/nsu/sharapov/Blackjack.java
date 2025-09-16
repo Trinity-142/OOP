@@ -5,28 +5,50 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
-
+/**
+ * Класс игры в блекджек.
+ */
 public class Blackjack {
 
     private final CardDeck deck;
     private final Decisions decisions;
+    private Player player;
+    private Player dealer;
 
-
+    /**
+     * Конструктор для запускка в CLI режиме.
+     */
     public Blackjack() {
         this.deck = new CardDeck();
         this.decisions = new ScannerDecisions(new Scanner(System.in));
     }
 
+    /**
+     * Конструктор для тестов.
+     *
+     * @param deck      Кастомная колода теста
+     * @param decisions Итератор ходов игрока
+     */
     public Blackjack(CardDeck deck, TestDecisions decisions) {
         this.deck = deck;
         this.decisions = decisions;
     }
 
+    /**
+     * Запускает игру в блекджек в CLI режиме.
+     *
+     * @param args -
+     */
     public static void main(String[] args) {
         Blackjack game = new Blackjack();
         game.play();
     }
 
+    /**
+     * Метод запуска игры.
+     *
+     * @return В случае тестирования возвращает строку "Player won" / "Dealer won" / "Draw"
+     */
     public String play() {
         try {
             System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
@@ -35,11 +57,13 @@ public class Blackjack {
         }
         System.out.print("Добро пожаловать в Блэкджек!\n");
         int round = 1;
-        Player player = new Player();
-        Player dealer = new Player();
+        this.player = new Player();
+        this.dealer = new Player();
         roundsLoop:
         while (true) {
-            if (this.decisions instanceof ScannerDecisions) this.deck.reset();
+            if (this.decisions instanceof ScannerDecisions) {
+                this.deck.reset();
+            }
             player.reset(this.deck);
             dealer.reset(this.deck);
             System.out.printf("Раунд %d\n", round);
@@ -48,7 +72,9 @@ public class Blackjack {
             System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.get(0));
             if (player.sum == 21) {
                 round += 1;
-                if (playerWin(player, dealer)) return "Player won";
+                if (handleWin(player, "Вы выиграли раунд! Счет %d:%d")) {
+                    return "Player won";
+                }
                 continue;
             }
 
@@ -60,18 +86,23 @@ public class Blackjack {
                 System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.get(0));
                 if (player.sum > 21) {
                     round += 1;
-                    if (dealerWin(player, dealer)) return "Dealer won";
+                    if (handleWin(dealer, "Вы проиграли раунд! Счет %d:%d")) {
+                        return "Dealer won";
+                    }
                     continue roundsLoop;
                 }
             }
 
             System.out.print("Ход дилера\n" + "-------\n");
-            System.out.printf("Дилер открывает закрытую карту %s\n", dealer.hand.get(dealer.hand.size()-1));
+            System.out.printf("Дилер открывает закрытую карту %s\n",
+                dealer.hand.get(dealer.hand.size() - 1));
             System.out.printf("Ваши карты: %s\n", player);
             System.out.printf("Карты дилера: %s\n\n", dealer);
             if (dealer.sum == 21) {
                 round += 1;
-                if (dealerWin(player, dealer)) return "Dealer won";
+                if (handleWin(dealer, "Вы проиграли раунд! Счет %d:%d")) {
+                    return "Dealer won";
+                }
                 continue;
             }
             while (dealer.sum < 17) {
@@ -81,46 +112,50 @@ public class Blackjack {
                 System.out.printf("Карты дилера: %s\n\n", dealer);
                 if (dealer.sum > 21) {
                     round += 1;
-                    if (playerWin(player, dealer)) return "Player won";
+                    if (handleWin(player, "Вы выиграли раунд! Счет %d:%d")) {
+                        return "Player won";
+                    }
                     continue roundsLoop;
                 }
             }
 
             if (player.sum > dealer.sum) {
-                if (playerWin(player, dealer)) return "Player won";
+                if (handleWin(player, "Вы выиграли раунд! Счет %d:%d")) {
+                    return "Player won";
+                }
             } else if (player.sum < dealer.sum) {
-                if (dealerWin(player, dealer)) return "Dealer won";
+                if (handleWin(dealer, "Вы проиграли раунд! Счет %d:%d")) {
+                    return "Dealer won";
+                }
             } else {
                 System.out.print("Ровно!\n");
-                if (this.decisions instanceof TestDecisions) return "Draw";
+                if (this.decisions instanceof TestDecisions) {
+                    return "Draw";
+                }
             }
             round += 1;
         }
     }
 
-    public boolean playerWin(Player player, Player dealer) {
-        player.score += 1;
-        System.out.printf("Вы выиграли раунд! Счет %d:%d", player.score, dealer.score);
-        if (player.score > dealer.score) {
-            System.out.println(" в вашу пользу.\n");
-        } else if (player.score < dealer.score) {
-            System.out.println(" в пользу дилера.\n");
-        } else {
-            System.out.println(".\n");
-        }
-        return this.decisions instanceof TestDecisions;
-    }
+    /**
+     * Сообщает о победе или поражении игрока, выводит текущий счет.
+     *
+     * @param winner  Победитель
+     * @param message Сообщение о победе или проигрыше
+     * @return true если запуск в режиме тестирования, false иначе
+     */
+    private boolean handleWin(Player winner, String message) {
+        winner.score += 1;
+        System.out.printf(message, this.player.score, this.dealer.score);
 
-    public boolean dealerWin(Player player, Player dealer) {
-        dealer.score += 1;
-        System.out.printf("Вы проиграли раунд! Счет %d:%d", player.score, dealer.score);
-        if (player.score > dealer.score) {
+        if (this.player.score > this.dealer.score) {
             System.out.println(" в вашу пользу.\n");
-        } else if (player.score < dealer.score) {
+        } else if (this.player.score < this.dealer.score) {
             System.out.println(" в пользу дилера.\n");
         } else {
             System.out.println(".\n");
         }
+
         return this.decisions instanceof TestDecisions;
     }
 }
