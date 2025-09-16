@@ -108,7 +108,7 @@ public class BlackjackTest {
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
         CardDeck deck = new CardDeck(cards);
         Player player = new Player();
-        for (Card _ : test) {
+        for (Card card : test) {
             player.getCard(deck);
         }
         assertEquals(13, player.sum);
