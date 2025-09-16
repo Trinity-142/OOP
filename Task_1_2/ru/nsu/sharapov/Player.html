@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Player</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Класс игрока в блекджек.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -120,13 +121,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Card.html" title="class in ru.nsu.sharapov">Card</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCard(ru.nsu.sharapov.CardDeck)" class="member-name-link">getCard</a><wbr>(<a href="CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a>&nbsp;deck)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Взять карту из колоды.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reset(ru.nsu.sharapov.CardDeck)" class="member-name-link">reset</a><wbr>(<a href="CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a>&nbsp;deck)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Раздает новые карты игроку, не обнуляет его счёт по раундам.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Возвращает строковое представление объекта.</div>
+</div>
 </div>
 </div>
 </div>
@@ -176,15 +183,26 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getCard(ru.nsu.sharapov.CardDeck)">
 <h3>getCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Card.html" title="class in ru.nsu.sharapov">Card</a></span>&nbsp;<span class="element-name">getCard</span><wbr><span class="parameters">(<a href="CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a>&nbsp;deck)</span></div>
+<div class="block">Взять карту из колоды.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>deck</code> - Колода карт</dd>
+<dt>Returns:</dt>
+<dd>Взятая карта</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
+<div class="block">Возвращает строковое представление объекта. Переопределяет стандартную реализацию метода
+ toString() класса Object.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Returns:</dt>
+<dd>Строковое представление объекта в формате: [карты на руках игрока] => сумма очков</dd>
 </dl>
 </section>
 </li>
@@ -192,6 +210,11 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="reset(ru.nsu.sharapov.CardDeck)">
 <h3>reset</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reset</span><wbr><span class="parameters">(<a href="CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a>&nbsp;deck)</span></div>
+<div class="block">Раздает новые карты игроку, не обнуляет его счёт по раундам.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>deck</code> - Колода карт</dd>
+</dl>
 </section>
 </li>
 </ul>

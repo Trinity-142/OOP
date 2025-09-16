@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">CardDeck</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Класс колоды карт.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -88,9 +89,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">CardDeck</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Конструктор для создания рандомной колоды из 52 карт.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.ArrayList)" class="member-name-link">CardDeck</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="Card.html" title="class in ru.nsu.sharapov">Card</a>&gt;&nbsp;deck)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Конструктор для тестов.</div>
+</div>
 </div>
 </section>
 </li>
@@ -107,10 +112,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Card.html" title="class in ru.nsu.sharapov">Card</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#giveCard()" class="member-name-link">giveCard</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Выдать случайную карту из колоды.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reset()" class="member-name-link">reset</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Пересоздать колоду.</div>
+</div>
 </div>
 </div>
 </div>
@@ -132,12 +141,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.util.ArrayList)">
 <h3>CardDeck</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CardDeck</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="Card.html" title="class in ru.nsu.sharapov">Card</a>&gt;&nbsp;deck)</span></div>
+<div class="block">Конструктор для тестов.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>deck</code> - Кастомная колода теста</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>CardDeck</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CardDeck</span>()</div>
+<div class="block">Конструктор для создания рандомной колоды из 52 карт.</div>
 </section>
 </li>
 </ul>
@@ -152,12 +167,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="giveCard()">
 <h3>giveCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Card.html" title="class in ru.nsu.sharapov">Card</a></span>&nbsp;<span class="element-name">giveCard</span>()</div>
+<div class="block">Выдать случайную карту из колоды.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Возвращает выданную карту</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="reset()">
 <h3>reset</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reset</span>()</div>
+<div class="block">Пересоздать колоду.</div>
 </section>
 </li>
 </ul>
