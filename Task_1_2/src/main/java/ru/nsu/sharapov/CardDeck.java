@@ -9,22 +9,24 @@ import java.util.HashMap;
  */
 public class CardDeck {
 
-    private final HashMap<String, Integer> valueMap = new HashMap<>() {{
-        put("Двойка", 2);
-        put("Тройка", 3);
-        put("Четвёрка", 4);
-        put("Пятёрка", 5);
-        put("Шестёрка", 6);
-        put("Семёрка", 7);
-        put("Восьмёрка", 8);
-        put("Девятка", 9);
-        put("Десятка", 10);
-        put("Валет", 10);
-        put("Дама", 10);
-        put("Король", 10);
-        put("Туз", 11);
-    }};
+    private final HashMap<String, Integer> valueMap = new HashMap<>();
     private ArrayList<Card> deck = new ArrayList<>();
+
+    {
+        valueMap.put("Двойка", 2);
+        valueMap.put("Тройка", 3);
+        valueMap.put("Четвёрка", 4);
+        valueMap.put("Пятёрка", 5);
+        valueMap.put("Шестёрка", 6);
+        valueMap.put("Семёрка", 7);
+        valueMap.put("Восьмёрка", 8);
+        valueMap.put("Девятка", 9);
+        valueMap.put("Десятка", 10);
+        valueMap.put("Валет", 10);
+        valueMap.put("Дама", 10);
+        valueMap.put("Король", 10);
+        valueMap.put("Туз", 11);
+    }
 
     /**
      * Конструктор для тестов.
