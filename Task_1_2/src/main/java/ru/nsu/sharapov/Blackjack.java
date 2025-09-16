@@ -45,7 +45,7 @@ public class Blackjack {
             System.out.printf("Раунд %d\n", round);
             System.out.print("Дилер раздал карты\n");
             System.out.printf("Ваши карты: %s\n", player);
-            System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.getFirst());
+            System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.get(0));
             if (player.sum == 21) {
                 round += 1;
                 if (playerWin(player, dealer)) return "Player won";
@@ -57,7 +57,7 @@ public class Blackjack {
                 Card card = player.getCard(this.deck);
                 System.out.printf("Вы открыли карту %s\n", card);
                 System.out.printf("Ваши карты: %s\n", player);
-                System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.getFirst());
+                System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.get(0));
                 if (player.sum > 21) {
                     round += 1;
                     if (dealerWin(player, dealer)) return "Dealer won";
@@ -66,7 +66,7 @@ public class Blackjack {
             }
 
             System.out.print("Ход дилера\n" + "-------\n");
-            System.out.printf("Дилер открывает закрытую карту %s\n", dealer.hand.getLast());
+            System.out.printf("Дилер открывает закрытую карту %s\n", dealer.hand.get(dealer.hand.size()-1));
             System.out.printf("Ваши карты: %s\n", player);
             System.out.printf("Карты дилера: %s\n\n", dealer);
             if (dealer.sum == 21) {

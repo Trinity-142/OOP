@@ -6,8 +6,8 @@ import java.util.HashMap;
 
 public class CardDeck {
 
-    private ArrayList<Card> DECK = new ArrayList<>();
-    private final HashMap<String, Integer> VALUE_MAP = new HashMap<>() {{
+    private ArrayList<Card> deck = new ArrayList<>();
+    private final HashMap<String, Integer> valueMap = new HashMap<>() {{
         put("Двойка", 2);
         put("Тройка", 3);
         put("Четвёрка", 4);
@@ -26,9 +26,9 @@ public class CardDeck {
 
     public CardDeck(ArrayList<Card> deck) {
         for (Card card : deck) {
-            card.value = this.VALUE_MAP.get(card.rank);
+            card.value = this.valueMap.get(card.rank);
         }
-        this.DECK = deck;
+        this.deck = deck;
     }
 
     public CardDeck() {
@@ -41,18 +41,18 @@ public class CardDeck {
             "Восьмёрка", "Девятка", "Десятка", "Валет", "Дама", "Король", "Туз"};
         for (String suit : suits) {
             for (String rank : ranks) {
-                this.DECK.add(new Card(rank, suit, this.VALUE_MAP.get(rank)));
+                this.deck.add(new Card(rank, suit, this.valueMap.get(rank)));
             }
         }
-        Collections.shuffle(DECK);
+        Collections.shuffle(deck);
     }
 
     public Card giveCard() {
-        return DECK.removeFirst();
+        return deck.remove(0);
     }
 
     public void reset(){
-        DECK.clear();
+        deck.clear();
         init();
     }
 }
