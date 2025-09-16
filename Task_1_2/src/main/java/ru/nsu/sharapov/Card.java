@@ -6,11 +6,18 @@ public class Card {
     String suit;
     String rank;
     Integer value;
-    public Card(String suit, String rank) {
+    public Card(String rank, String suit) {
         this.suit = suit;
         this.rank = rank;
-        this.value = CardDeck.VALUE_MAP.get(rank);
     }
+
+    public Card(String rank, String suit, Integer value) {
+        this.suit = suit;
+        this.rank = rank;
+        this.value = value;
+    }
+
+
 
 
     public String toString() {

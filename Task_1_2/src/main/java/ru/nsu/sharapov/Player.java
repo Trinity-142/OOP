@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Player {
+
+    public int sum;
     ArrayList<Card> hand = new ArrayList<>();
-    int sum;
     int aces;
     int score;
 
-
-
-    public Card getCard() {
-        Card card = CardDeck.giveCard();
+    public Card getCard(CardDeck deck) {
+        Card card = deck.giveCard();
         hand.add(card);
         sum += card.value;
         if (Objects.equals(card.rank, "Туз")) {
@@ -26,15 +25,15 @@ public class Player {
     }
 
     public String toString() {
-        return hand.toString() + " => " + String.valueOf(sum);
+        return hand.toString() + " => " + sum;
     }
 
-    public void reset() {
+    public void reset(CardDeck deck) {
         this.hand.clear();
         this.aces = 0;
         this.sum = 0;
-        this.getCard();
-        this.getCard();
+        this.getCard(deck);
+        this.getCard(deck);
     }
 
 }
