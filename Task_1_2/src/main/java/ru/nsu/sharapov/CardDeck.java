@@ -5,39 +5,44 @@ import java.util.Collections;
 import java.util.HashMap;
 
 /**
+ * Number of existing card ranks and their points in the game.
+ */
+enum Cards {
+    TWO("Двойка", 2),
+    THREE("Тройка", 3),
+    FOUR("Четвёрка", 4),
+    FIVE("Пятёрка", 5),
+    SIX("Шестёрка", 6),
+    SEVEN("Семёрка", 7),
+    EIGHT("Восьмёрка", 8),
+    NINE("Девятка", 9),
+    TEN("Десятка", 10),
+    JACK("Валет", 10),
+    QUEEN("Дама", 10),
+    KING("Король", 10),
+    ACE("Туз", 11);
+    final String rank;
+    final Integer value;
+
+    Cards(String code, Integer value) {
+        this.rank = code;
+        this.value = value;
+    }
+}
+
+
+/**
  * Класс колоды карт.
  */
 public class CardDeck {
 
-    private final HashMap<String, Integer> valueMap = new HashMap<>();
-    private ArrayList<Card> deck = new ArrayList<>();
+    final HashMap<String, Integer> valueMap = new HashMap<>();
+    ArrayList<Card> deck = new ArrayList<>();
 
     {
-        valueMap.put("Двойка", 2);
-        valueMap.put("Тройка", 3);
-        valueMap.put("Четвёрка", 4);
-        valueMap.put("Пятёрка", 5);
-        valueMap.put("Шестёрка", 6);
-        valueMap.put("Семёрка", 7);
-        valueMap.put("Восьмёрка", 8);
-        valueMap.put("Девятка", 9);
-        valueMap.put("Десятка", 10);
-        valueMap.put("Валет", 10);
-        valueMap.put("Дама", 10);
-        valueMap.put("Король", 10);
-        valueMap.put("Туз", 11);
-    }
-
-    /**
-     * Конструктор для тестов.
-     *
-     * @param deck Кастомная колода теста
-     */
-    public CardDeck(ArrayList<Card> deck) {
-        for (Card card : deck) {
-            card.value = this.valueMap.get(card.rank);
+        for (Cards card : Cards.values()) {
+            valueMap.put(card.rank, card.value);
         }
-        this.deck = deck;
     }
 
     /**
@@ -78,4 +83,9 @@ public class CardDeck {
         deck.clear();
         init();
     }
+
+    public boolean empty() {
+        return deck.isEmpty();
+    }
 }
+

@@ -1,5 +1,6 @@
 package ru.nsu.sharapov;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -7,6 +8,11 @@ import java.util.Scanner;
  */
 interface Decisions {
 
+    /**
+     * Метод для опроса игрока о принятии решения.
+     *
+     * @return Выбор игрока: 1 или 0 со сканера
+     */
     int askTakeCard();
 }
 
@@ -26,14 +32,20 @@ public class ScannerDecisions implements Decisions {
         this.scanner = scanner;
     }
 
-    /**
-     * Переопределение метода для опроса игрока о принятии решения.
-     *
-     * @return Выбор игрока: 1 или 0 со сканера
-     */
     @Override
-    public int askTakeCard() {
-        System.out.println("Введите “1”, чтобы взять карту, и “0”, чтобы остановиться...\n");
-        return scanner.nextInt();
+    public int askTakeCard() throws InputMismatchException {
+        int decision;
+        while (true) {
+            try {
+                System.out.println(
+                    "Введите “1”, чтобы взять карту, и “0”, чтобы остановиться...\n");
+                decision = scanner.nextInt();
+                break;
+            } catch (InputMismatchException exc) {
+                System.out.println("Некорректный ввод");
+                scanner.next();
+            }
+        }
+        return decision;
     }
 }

@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 public class Player {
 
+    static final int max_sum = 21;
     public int sum;
     ArrayList<Card> hand = new ArrayList<>();
     int aces;
@@ -26,7 +27,7 @@ public class Player {
         if (Objects.equals(card.rank, "Туз")) {
             aces += 1;
         }
-        while (sum > 21 & aces > 0) {
+        while (sum > max_sum && aces > 0) {
             aces -= 1;
             sum -= 10;
         }

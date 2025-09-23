@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +9,7 @@ import ru.nsu.sharapov.Blackjack;
 import ru.nsu.sharapov.Card;
 import ru.nsu.sharapov.CardDeck;
 import ru.nsu.sharapov.Player;
+import ru.nsu.sharapov.TestCardDeck;
 import ru.nsu.sharapov.TestDecisions;
 
 
@@ -23,11 +25,11 @@ public class BlackjackTest {
             new Card("Туз", "Бубны"),
             new Card("Девятка", "Пики")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
 
         List<Integer> decisions = List.of(1, 0);
         Blackjack game = new Blackjack(deck, new TestDecisions(decisions));
-        assertEquals("Player won", game.play());
+        assertEquals("Player won", game.startRound(1));
     }
 
     @Test
@@ -39,11 +41,11 @@ public class BlackjackTest {
             new Card("Пятёрка", "Бубны"),
             new Card("Туз", "Пики")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
 
         List<Integer> decisions = List.of(0);
         Blackjack game = new Blackjack(deck, new TestDecisions(decisions));
-        assertEquals("Dealer won", game.play());
+        assertEquals("Dealer won", game.startRound(1));
     }
 
     @Test
@@ -54,11 +56,11 @@ public class BlackjackTest {
             new Card("Король", "Бубны"),
             new Card("Валет", "Пики")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
 
         List<Integer> decisions = List.of(0);
         Blackjack game = new Blackjack(deck, new TestDecisions(decisions));
-        assertEquals("Draw", game.play());
+        assertEquals("Draw", game.startRound(1));
     }
 
     @Test
@@ -73,11 +75,11 @@ public class BlackjackTest {
             new Card("Двойка", "Трефы"),
             new Card("Король", "Червы")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
 
         List<Integer> decisions = List.of(1, 1, 1, 1);
         Blackjack game = new Blackjack(deck, new TestDecisions(decisions));
-        assertEquals("Dealer won", game.play());
+        assertEquals("Dealer won", game.startRound(1));
     }
 
     @Test
@@ -92,11 +94,11 @@ public class BlackjackTest {
             new Card("Двойка", "Трефы"),
             new Card("Десятка", "Червы")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
 
         List<Integer> decisions = List.of(1, 1, 1, 0);
         Blackjack game = new Blackjack(deck, new TestDecisions(decisions));
-        assertEquals("Player won", game.play());
+        assertEquals("Player won", game.startRound(1));
     }
 
     @Test
@@ -106,7 +108,7 @@ public class BlackjackTest {
             new Card("Туз", "Червы"),
             new Card("Туз", "Бубны")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
         Player player = new Player();
         for (Card card : test) {
             player.getCard(deck);
@@ -122,11 +124,11 @@ public class BlackjackTest {
             new Card("Шестёрка", "Бубны"),
             new Card("Двойка", "Бубны")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
 
         List<Integer> decisions = List.of();
         Blackjack game = new Blackjack(deck, new TestDecisions(decisions));
-        assertEquals("Player won", game.play());
+        assertEquals("Player won", game.startRound(1));
     }
 
     @Test
@@ -138,10 +140,30 @@ public class BlackjackTest {
             new Card("Туз", "Бубны"),
             new Card("Двойка", "Бубны")};
         ArrayList<Card> cards = new ArrayList<>(Arrays.asList(test));
-        CardDeck deck = new CardDeck(cards);
+        TestCardDeck deck = new TestCardDeck(cards);
 
         List<Integer> decisions = List.of(1, 0);
         Blackjack game = new Blackjack(deck, new TestDecisions(decisions));
-        assertEquals("Dealer won", game.play());
+        assertEquals("Dealer won", game.startRound(1));
+    }
+
+    @Test
+    void randomDecks() {
+        CardDeck deck1 = new CardDeck();
+        CardDeck deck2 = new CardDeck();
+        while (!deck1.empty()) {
+            Card card1 = deck1.giveCard();
+            Card card2 = deck2.giveCard();
+            assertNotEquals(card1, card2);
+        }
+    }
+
+    @Test
+    void deckReset() {
+        CardDeck deck = new CardDeck();
+        Card card1 = deck.giveCard();
+        deck.reset();
+        Card card2 = deck.giveCard();
+        assertNotEquals(card1.toString(), card2.toString());
     }
 }

@@ -19,14 +19,8 @@ public class TestDecisions implements Decisions {
         this.decisions = decisions.iterator();
     }
 
-    /**
-     * Переопределение метода для опроса игрока о принятии решения.
-     *
-     * @return Выбор игрока: 1 или 0 из итератора ходов.
-     */
     @Override
     public int askTakeCard() {
-        System.out.println("Введите “1”, чтобы взять карту, и “0”, чтобы остановиться...\n");
         return decisions.next();
     }
 }
