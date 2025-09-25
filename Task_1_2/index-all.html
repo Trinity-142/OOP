@@ -48,12 +48,16 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1>Index</h1>
 </div>
-<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
+<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:Q">Q</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
-<dt><a href="ru/nsu/sharapov/ScannerDecisions.html#askTakeCard()" class="member-name-link">askTakeCard()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/ScannerDecisions.html" title="class in ru.nsu.sharapov">ScannerDecisions</a></dt>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#ACE" class="member-name-link">ACE</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="ru/nsu/sharapov/TestDecisions.html#askTakeCard()" class="member-name-link">askTakeCard()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/TestDecisions.html" title="class in ru.nsu.sharapov">TestDecisions</a></dt>
+<dt><a href="ru/nsu/sharapov/Decisions.html#askTakeCard()" class="member-name-link">askTakeCard()</a> - Method in interface ru.nsu.sharapov.<a href="ru/nsu/sharapov/Decisions.html" title="interface in ru.nsu.sharapov">Decisions</a></dt>
+<dd>
+<div class="block">Метод для опроса игрока о принятии решения.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/ScannerDecisions.html#askTakeCard()" class="member-name-link">askTakeCard()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/ScannerDecisions.html" title="class in ru.nsu.sharapov">ScannerDecisions</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:B">B</h2>
@@ -66,9 +70,13 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Конструктор для запускка в CLI режиме.</div>
 </dd>
-<dt><a href="ru/nsu/sharapov/Blackjack.html#%3Cinit%3E(ru.nsu.sharapov.CardDeck,ru.nsu.sharapov.TestDecisions)" class="member-name-link">Blackjack(CardDeck, TestDecisions)</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.html" title="class in ru.nsu.sharapov">Blackjack</a></dt>
+<dt><a href="ru/nsu/sharapov/Blackjack.html#%3Cinit%3E(ru.nsu.sharapov.CardDeck,ru.nsu.sharapov.Decisions)" class="member-name-link">Blackjack(CardDeck, Decisions)</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.html" title="class in ru.nsu.sharapov">Blackjack</a></dt>
 <dd>
-<div class="block">Конструктор для тестов.</div>
+<div class="block">Constructor with a given deck and user input scanner.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/Blackjack.GameEndings.html" class="type-name-link" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a> - Enum Class in <a href="ru/nsu/sharapov/package-summary.html">ru.nsu.sharapov</a></dt>
+<dd>
+<div class="block">Enum of game endings.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:C">C</h2>
@@ -77,13 +85,9 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Класс игральной карты.</div>
 </dd>
-<dt><a href="ru/nsu/sharapov/Card.html#%3Cinit%3E(java.lang.String,java.lang.String)" class="member-name-link">Card(String, String)</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Card.html" title="class in ru.nsu.sharapov">Card</a></dt>
+<dt><a href="ru/nsu/sharapov/Card.html#%3Cinit%3E(ru.nsu.sharapov.CardRankValue,ru.nsu.sharapov.Suits)" class="member-name-link">Card(CardRankValue, Suits)</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Card.html" title="class in ru.nsu.sharapov">Card</a></dt>
 <dd>
-<div class="block">Конструктор для тестов, без указания value.</div>
-</dd>
-<dt><a href="ru/nsu/sharapov/Card.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.Integer)" class="member-name-link">Card(String, String, Integer)</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Card.html" title="class in ru.nsu.sharapov">Card</a></dt>
-<dd>
-<div class="block">Конструктор, использующийся при создании колоды.</div>
+<div class="block">Constructor.</div>
 </dd>
 <dt><a href="ru/nsu/sharapov/CardDeck.html" class="type-name-link" title="class in ru.nsu.sharapov">CardDeck</a> - Class in <a href="ru/nsu/sharapov/package-summary.html">ru.nsu.sharapov</a></dt>
 <dd>
@@ -93,10 +97,40 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Конструктор для создания рандомной колоды из 52 карт.</div>
 </dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html" class="type-name-link" title="enum class in ru.nsu.sharapov">CardRankValue</a> - Enum Class in <a href="ru/nsu/sharapov/package-summary.html">ru.nsu.sharapov</a></dt>
+<dd>
+<div class="block">Enum of card ranks and their values in blackjack.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/Suits.html#CLUBS" class="member-name-link">CLUBS</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Suits.html" title="enum class in ru.nsu.sharapov">Suits</a></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 class="title" id="I:D">D</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/Blackjack.GameEndings.html#DEALER_WON" class="member-name-link">DEALER_WON</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.GameEndings.html" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/Decisions.html" class="type-name-link" title="interface in ru.nsu.sharapov">Decisions</a> - Interface in <a href="ru/nsu/sharapov/package-summary.html">ru.nsu.sharapov</a></dt>
+<dd>
+<div class="block">Интерфейс принятия решения о взятии карты или конце хода игрока.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/CardDeck.html#deck" class="member-name-link">deck</a> - Variable in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/Suits.html#DIAMONDS" class="member-name-link">DIAMONDS</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Suits.html" title="enum class in ru.nsu.sharapov">Suits</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/Blackjack.GameEndings.html#DRAW" class="member-name-link">DRAW</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.GameEndings.html" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
 <dl class="index">
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#EIGHT" class="member-name-link">EIGHT</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/nsu/sharapov/CardDeck.html#empty()" class="member-name-link">empty()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 class="title" id="I:F">F</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#FIVE" class="member-name-link">FIVE</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#FOUR" class="member-name-link">FOUR</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:G">G</h2>
@@ -105,10 +139,39 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Взять карту из колоды.</div>
 </dd>
+<dt><a href="ru/nsu/sharapov/Card.html#getCardRankValue()" class="member-name-link">getCardRankValue()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Card.html" title="class in ru.nsu.sharapov">Card</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/Player.html#getHand()" class="member-name-link">getHand()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Player.html" title="class in ru.nsu.sharapov">Player</a></dt>
+<dd>
+<div class="block">Player hand getter.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/Player.html#getScore()" class="member-name-link">getScore()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Player.html" title="class in ru.nsu.sharapov">Player</a></dt>
+<dd>
+<div class="block">Player score getter.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/Player.html#getSum()" class="member-name-link">getSum()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Player.html" title="class in ru.nsu.sharapov">Player</a></dt>
+<dd>
+<div class="block">Player sum getter.</div>
+</dd>
 <dt><a href="ru/nsu/sharapov/CardDeck.html#giveCard()" class="member-name-link">giveCard()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a></dt>
 <dd>
 <div class="block">Выдать случайную карту из колоды.</div>
 </dd>
+</dl>
+<h2 class="title" id="I:H">H</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/Suits.html#HEARTS" class="member-name-link">HEARTS</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Suits.html" title="enum class in ru.nsu.sharapov">Suits</a></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 class="title" id="I:J">J</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#JACK" class="member-name-link">JACK</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 class="title" id="I:K">K</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#KING" class="member-name-link">KING</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
@@ -116,6 +179,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Запускает игру в блекджек в CLI режиме.</div>
 </dd>
+</dl>
+<h2 class="title" id="I:N">N</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#NINE" class="member-name-link">NINE</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
@@ -129,6 +197,13 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="ru/nsu/sharapov/Player.html#%3Cinit%3E()" class="member-name-link">Player()</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Player.html" title="class in ru.nsu.sharapov">Player</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/Blackjack.GameEndings.html#PLAYER_WON" class="member-name-link">PLAYER_WON</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.GameEndings.html" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 class="title" id="I:Q">Q</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#QUEEN" class="member-name-link">QUEEN</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:R">R</h2>
 <dl class="index">
@@ -136,8 +211,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Пересоздать колоду.</div>
 </dd>
-<dt><a href="ru/nsu/sharapov/TestCardDeck.html#reset()" class="member-name-link">reset()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/TestCardDeck.html" title="class in ru.nsu.sharapov">TestCardDeck</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="ru/nsu/sharapov/Player.html#reset(ru.nsu.sharapov.CardDeck)" class="member-name-link">reset(CardDeck)</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Player.html" title="class in ru.nsu.sharapov">Player</a></dt>
 <dd>
 <div class="block">Раздает новые карты игроку, не обнуляет его счёт по раундам.</div>
@@ -155,31 +228,31 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Конструктор принимающий сканер.</div>
 </dd>
+<dt><a href="ru/nsu/sharapov/Player.html#setScore(int)" class="member-name-link">setScore(int)</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Player.html" title="class in ru.nsu.sharapov">Player</a></dt>
+<dd>
+<div class="block">Player score setter.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#SEVEN" class="member-name-link">SEVEN</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#SIX" class="member-name-link">SIX</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/Suits.html#SPADES" class="member-name-link">SPADES</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Suits.html" title="enum class in ru.nsu.sharapov">Suits</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/nsu/sharapov/Blackjack.html#startRound(int)" class="member-name-link">startRound(int)</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.html" title="class in ru.nsu.sharapov">Blackjack</a></dt>
 <dd>
 <div class="block">Метод запуска раунда игры.</div>
 </dd>
-<dt><a href="ru/nsu/sharapov/Player.html#sum" class="member-name-link">sum</a> - Variable in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Player.html" title="class in ru.nsu.sharapov">Player</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/Suits.html" class="type-name-link" title="enum class in ru.nsu.sharapov">Suits</a> - Enum Class in <a href="ru/nsu/sharapov/package-summary.html">ru.nsu.sharapov</a></dt>
+<dd>
+<div class="block">Enum of card suits.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
 <dl class="index">
-<dt><a href="ru/nsu/sharapov/TestCardDeck.html" class="type-name-link" title="class in ru.nsu.sharapov">TestCardDeck</a> - Class in <a href="ru/nsu/sharapov/package-summary.html">ru.nsu.sharapov</a></dt>
-<dd>
-<div class="block">Subclass for tests.</div>
-</dd>
-<dt><a href="ru/nsu/sharapov/TestCardDeck.html#%3Cinit%3E(java.util.ArrayList)" class="member-name-link">TestCardDeck(ArrayList&lt;Card&gt;)</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/TestCardDeck.html" title="class in ru.nsu.sharapov">TestCardDeck</a></dt>
-<dd>
-<div class="block">Subclass constructor for tests.</div>
-</dd>
-<dt><a href="ru/nsu/sharapov/TestDecisions.html" class="type-name-link" title="class in ru.nsu.sharapov">TestDecisions</a> - Class in <a href="ru/nsu/sharapov/package-summary.html">ru.nsu.sharapov</a></dt>
-<dd>
-<div class="block">Реализация для тестирования с заданными ходами игрока.</div>
-</dd>
-<dt><a href="ru/nsu/sharapov/TestDecisions.html#%3Cinit%3E(java.util.List)" class="member-name-link">TestDecisions(List&lt;Integer&gt;)</a> - Constructor for class ru.nsu.sharapov.<a href="ru/nsu/sharapov/TestDecisions.html" title="class in ru.nsu.sharapov">TestDecisions</a></dt>
-<dd>
-<div class="block">Конструктор принимающий список ходов.</div>
-</dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#TEN" class="member-name-link">TEN</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#THREE" class="member-name-link">THREE</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/nsu/sharapov/Card.html#toString()" class="member-name-link">toString()</a> - Method in class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Card.html" title="class in ru.nsu.sharapov">Card</a></dt>
 <dd>
 <div class="block">Возвращает строковое представление объекта.</div>
@@ -188,8 +261,40 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Возвращает строковое представление объекта.</div>
 </dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#TWO" class="member-name-link">TWO</a> - Enum constant in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>&nbsp;</dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
+<h2 class="title" id="I:V">V</h2>
+<dl class="index">
+<dt><a href="ru/nsu/sharapov/Blackjack.GameEndings.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.GameEndings.html" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/Suits.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Suits.html" title="enum class in ru.nsu.sharapov">Suits</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/Blackjack.GameEndings.html#values()" class="member-name-link">values()</a> - Static method in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Blackjack.GameEndings.html" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/CardRankValue.html#values()" class="member-name-link">values()</a> - Static method in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/CardRankValue.html" title="enum class in ru.nsu.sharapov">CardRankValue</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="ru/nsu/sharapov/Suits.html#values()" class="member-name-link">values()</a> - Static method in enum class ru.nsu.sharapov.<a href="ru/nsu/sharapov/Suits.html" title="enum class in ru.nsu.sharapov">Suits</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+</dl>
+<a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:Q">Q</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
 </div>
 </div>
 </body>

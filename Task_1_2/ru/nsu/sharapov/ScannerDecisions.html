@@ -73,9 +73,14 @@ loadScripts(document, 'script');</script>
 <div class="inheritance">ru.nsu.sharapov.ScannerDecisions</div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="Decisions.html" title="interface in ru.nsu.sharapov">Decisions</a></code></dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ScannerDecisions</span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="Decisions.html" title="interface in ru.nsu.sharapov">Decisions</a></span></div>
 <div class="block">Реализация для CLI режима со сканером ввода игрока.</div>
 </section>
 <section class="summary">
@@ -108,7 +113,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#askTakeCard()" class="member-name-link">askTakeCard</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Метод для опроса игрока о принятии решения.</div>
+</div>
 </div>
 </div>
 </div>
@@ -148,11 +155,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="askTakeCard()">
 <h3>askTakeCard</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">askTakeCard</span>()
-                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/InputMismatchException.html" title="class or interface in java.util" class="external-link">InputMismatchException</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">askTakeCard</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Decisions.html#askTakeCard()">Decisions</a></code></span></div>
+<div class="block">Метод для опроса игрока о принятии решения.</div>
 <dl class="notes">
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/InputMismatchException.html" title="class or interface in java.util" class="external-link">InputMismatchException</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="Decisions.html#askTakeCard()">askTakeCard</a></code>&nbsp;in interface&nbsp;<code><a href="Decisions.html" title="interface in ru.nsu.sharapov">Decisions</a></code></dd>
+<dt>Returns:</dt>
+<dd>Выбор игрока: 1 или 0 со сканера</dd>
 </dl>
 </section>
 </li>

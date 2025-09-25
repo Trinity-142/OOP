@@ -42,7 +42,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -80,6 +80,23 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Blackjack.GameEndings.html" class="type-name-link" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Enum of game endings.</div>
+</div>
+</div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -92,10 +109,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Конструктор для запускка в CLI режиме.</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(ru.nsu.sharapov.CardDeck,ru.nsu.sharapov.TestDecisions)" class="member-name-link">Blackjack</a><wbr>(<a href="CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a>&nbsp;deck,
- <a href="TestDecisions.html" title="class in ru.nsu.sharapov">TestDecisions</a>&nbsp;decisions)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(ru.nsu.sharapov.CardDeck,ru.nsu.sharapov.Decisions)" class="member-name-link">Blackjack</a><wbr>(<a href="CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a>&nbsp;deck,
+ <a href="Decisions.html" title="interface in ru.nsu.sharapov">Decisions</a>&nbsp;decisions)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Конструктор для тестов.</div>
+<div class="block">Constructor with a given deck and user input scanner.</div>
 </div>
 </div>
 </section>
@@ -121,8 +138,8 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Метод запуска игры.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startRound(int)" class="member-name-link">startRound</a><wbr>(int&nbsp;round_num)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Blackjack.GameEndings.html" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startRound(int)" class="member-name-link">startRound</a><wbr>(int&nbsp;roundNum)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Метод запуска раунда игры.</div>
 </div>
@@ -151,11 +168,11 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(ru.nsu.sharapov.CardDeck,ru.nsu.sharapov.TestDecisions)">
+<section class="detail" id="&lt;init&gt;(ru.nsu.sharapov.CardDeck,ru.nsu.sharapov.Decisions)">
 <h3>Blackjack</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Blackjack</span><wbr><span class="parameters">(<a href="CardDeck.html" title="class in ru.nsu.sharapov">CardDeck</a>&nbsp;deck,
- <a href="TestDecisions.html" title="class in ru.nsu.sharapov">TestDecisions</a>&nbsp;decisions)</span></div>
-<div class="block">Конструктор для тестов.</div>
+ <a href="Decisions.html" title="interface in ru.nsu.sharapov">Decisions</a>&nbsp;decisions)</span></div>
+<div class="block">Constructor with a given deck and user input scanner.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>deck</code> - Кастомная колода теста</dd>
@@ -185,11 +202,11 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="startRound(int)">
 <h3>startRound</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">startRound</span><wbr><span class="parameters">(int&nbsp;round_num)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Blackjack.GameEndings.html" title="enum class in ru.nsu.sharapov">Blackjack.GameEndings</a></span>&nbsp;<span class="element-name">startRound</span><wbr><span class="parameters">(int&nbsp;roundNum)</span></div>
 <div class="block">Метод запуска раунда игры.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>String "Player won" / "Dealer won" / "Draw"</dd>
+<dd>Element of GameEndings enum</dd>
 </dl>
 </section>
 </li>
