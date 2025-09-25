@@ -6,32 +6,22 @@ package ru.nsu.sharapov;
  */
 public class Card {
 
-    String suit;
-    String rank;
-    Integer value;
+    private final Suits suit;
+    private final CardRankValue card;
 
-    /**
-     * Конструктор для тестов, без указания value.
-     *
-     * @param rank Достоинство карты
-     * @param suit Масть карты
-     */
-    public Card(String rank, String suit) {
-        this.suit = suit;
-        this.rank = rank;
+    public CardRankValue getCardRankValue() {
+        return this.card;
     }
 
     /**
-     * Конструктор, использующийся при создании колоды.
+     * Constructor.
      *
-     * @param rank  Достоинство карты
-     * @param suit  Масть карты
-     * @param value Количество очков в блекджеке
+     * @param card Rank and value in blackjack
+     * @param suit Suit
      */
-    public Card(String rank, String suit, Integer value) {
+    public Card(CardRankValue card, Suits suit) {
+        this.card = card;
         this.suit = suit;
-        this.rank = rank;
-        this.value = value;
     }
 
 
@@ -42,6 +32,6 @@ public class Card {
      * @return Строковое представление объекта в формате: {достоинство} {масть} ({очки в блекджеке})
      */
     public String toString() {
-        return rank + " " + suit + " (" + value + ")";
+        return card.rank + " " + suit + " (" + card.value + ")";
     }
 }

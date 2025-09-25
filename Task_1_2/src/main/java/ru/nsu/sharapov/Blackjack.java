@@ -5,20 +5,6 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
-/**
- * Enum of game endings.
- */
-enum GameEndings {
-    PLAYER_WON("Player won"),
-    DEALER_WON("Dealer won"),
-    DRAW("Draw");
-    final String message;
-
-    GameEndings(String msg) {
-        message = msg;
-    }
-}
-
 
 /**
  * Класс игры в блекджек.
@@ -41,12 +27,12 @@ public class Blackjack {
     }
 
     /**
-     * Конструктор для тестов.
+     * Constructor with a given deck and user input scanner.
      *
      * @param deck      Кастомная колода теста
      * @param decisions Итератор ходов игрока
      */
-    public Blackjack(CardDeck deck, TestDecisions decisions) {
+    public Blackjack(CardDeck deck, Decisions decisions) {
         this.deck = deck;
         this.decisions = decisions;
     }
@@ -64,19 +50,19 @@ public class Blackjack {
     /**
      * Метод запуска раунда игры.
      *
-     * @return String "Player won" / "Dealer won" / "Draw"
+     * @return Element of GameEndings enum
      */
-    public String startRound(int round_num) {
+    public GameEndings startRound(int roundNum) {
         deck.reset();
         player.reset(deck);
         dealer.reset(deck);
-        System.out.printf("Раунд %d\n", round_num);
+        System.out.printf("Раунд %d\n", roundNum);
         System.out.print("Дилер раздал карты\n");
         System.out.printf("Ваши карты: %s\n", player);
-        System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.get(0));
-        if (player.sum == maxSum) {
+        System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.getHand().get(0));
+        if (player.getSum() == maxSum) {
             handleWin(player, "Вы выиграли раунд! Счет %d:%d");
-            return GameEndings.PLAYER_WON.message;
+            return GameEndings.PLAYER_WON;
         }
 
         System.out.print("Ваш ход\n" + "-------\n");
@@ -84,42 +70,42 @@ public class Blackjack {
             Card card = player.getCard(deck);
             System.out.printf("Вы открыли карту %s\n", card);
             System.out.printf("Ваши карты: %s\n", player);
-            System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.hand.get(0));
-            if (player.sum > maxSum) {
+            System.out.printf("Карты дилера: [%s, <закрытая карта>]\n", dealer.getHand().get(0));
+            if (player.getSum() > maxSum) {
                 handleWin(dealer, "Вы проиграли раунд! Счет %d:%d");
-                return GameEndings.DEALER_WON.message;
+                return GameEndings.DEALER_WON;
             }
         }
 
         System.out.print("Ход дилера\n" + "-------\n");
         System.out.printf("Дилер открывает закрытую карту %s\n",
-            dealer.hand.get(dealer.hand.size() - 1));
+            dealer.getHand().get(dealer.getHand().size() - 1));
         System.out.printf("Ваши карты: %s\n", player);
         System.out.printf("Карты дилера: %s\n\n", dealer);
-        if (dealer.sum == maxSum) {
+        if (dealer.getSum() == maxSum) {
             handleWin(dealer, "Вы проиграли раунд! Счет %d:%d");
-            return GameEndings.DEALER_WON.message;
+            return GameEndings.DEALER_WON;
         }
-        while (dealer.sum < dealerMinSum) {
+        while (dealer.getSum() < dealerMinSum) {
             Card card = dealer.getCard(deck);
             System.out.printf("Дилер открывает карту %s\n", card);
             System.out.printf("Ваши карты: %s\n", player);
             System.out.printf("Карты дилера: %s\n\n", dealer);
-            if (dealer.sum > maxSum) {
+            if (dealer.getSum() > maxSum) {
                 handleWin(player, "Вы выиграли раунд! Счет %d:%d");
-                return GameEndings.PLAYER_WON.message;
+                return GameEndings.PLAYER_WON;
             }
         }
 
-        if (player.sum > dealer.sum) {
+        if (player.getSum() > dealer.getSum()) {
             handleWin(player, "Вы выиграли раунд! Счет %d:%d");
-            return GameEndings.PLAYER_WON.message;
-        } else if (player.sum < dealer.sum) {
+            return GameEndings.PLAYER_WON;
+        } else if (player.getSum() < dealer.getSum()) {
             handleWin(dealer, "Вы проиграли раунд! Счет %d:%d");
-            return GameEndings.DEALER_WON.message;
+            return GameEndings.DEALER_WON;
         } else {
             System.out.print("Ровно!\n");
-            return GameEndings.DRAW.message;
+            return GameEndings.DRAW;
         }
     }
 
@@ -141,20 +127,31 @@ public class Blackjack {
      *
      * @param winner  Победитель
      * @param message Сообщение о победе или проигрыше
-     * @return true если запуск в режиме тестирования, false иначе
      */
-    private boolean handleWin(Player winner, String message) {
-        winner.score += 1;
-        System.out.printf(message, player.score, dealer.score);
+    private void handleWin(Player winner, String message) {
+        winner.setScore(winner.getScore() + 1);
+        System.out.printf(message, player.getScore(), dealer.getScore());
 
-        if (player.score > dealer.score) {
+        if (player.getScore() > dealer.getScore()) {
             System.out.println(" в вашу пользу.\n");
-        } else if (player.score < dealer.score) {
+        } else if (player.getScore() < dealer.getScore()) {
             System.out.println(" в пользу дилера.\n");
         } else {
             System.out.println(".\n");
         }
+    }
 
-        return decisions instanceof TestDecisions;
+    /**
+     * Enum of game endings.
+     */
+    public enum GameEndings {
+        PLAYER_WON("Player won"),
+        DEALER_WON("Dealer won"),
+        DRAW("Draw");
+        final String message;
+
+        GameEndings(String msg) {
+            message = msg;
+        }
     }
 }

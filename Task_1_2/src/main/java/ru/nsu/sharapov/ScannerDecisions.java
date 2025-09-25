@@ -3,18 +3,6 @@ package ru.nsu.sharapov;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- * Интерфейс принятия решения о взятии карты или конце хода игрока.
- */
-interface Decisions {
-
-    /**
-     * Метод для опроса игрока о принятии решения.
-     *
-     * @return Выбор игрока: 1 или 0 со сканера
-     */
-    int askTakeCard();
-}
 
 /**
  * Реализация для CLI режима со сканером ввода игрока.
@@ -33,7 +21,7 @@ public class ScannerDecisions implements Decisions {
     }
 
     @Override
-    public int askTakeCard() throws InputMismatchException {
+    public int askTakeCard() {
         int decision;
         while (true) {
             try {
