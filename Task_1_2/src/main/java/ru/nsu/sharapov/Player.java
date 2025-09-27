@@ -1,7 +1,6 @@
 package ru.nsu.sharapov;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * Класс игрока в блекджек.
@@ -60,7 +59,7 @@ public class Player {
         Card card = deck.giveCard();
         hand.add(card);
         sum += card.getCardRankValue().value;
-        if (Objects.equals(card.getCardRankValue(), CardRankValue.ACE)) {
+        if (card.getCardRankValue() == CardRankValue.ACE) {
             aces += 1;
         }
         while (sum > blackjackScore && aces > 0) {

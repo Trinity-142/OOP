@@ -145,9 +145,7 @@ public class Blackjack {
      * Enum of game endings.
      */
     public enum GameEndings {
-        PLAYER_WON("Player won"),
-        DEALER_WON("Dealer won"),
-        DRAW("Draw");
+        PLAYER_WON("Player won"), DEALER_WON("Dealer won"), DRAW("Draw");
         final String message;
 
         GameEndings(String msg) {

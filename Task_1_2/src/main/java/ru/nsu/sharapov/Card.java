@@ -1,6 +1,8 @@
 package ru.nsu.sharapov;
 
 
+import java.util.Objects;
+
 /**
  * Класс игральной карты.
  */
@@ -8,10 +10,6 @@ public class Card {
 
     private final Suits suit;
     private final CardRankValue card;
-
-    public CardRankValue getCardRankValue() {
-        return this.card;
-    }
 
     /**
      * Constructor.
@@ -24,6 +22,37 @@ public class Card {
         this.suit = suit;
     }
 
+    public CardRankValue getCardRankValue() {
+        return this.card;
+    }
+
+    /**
+     * Equals override to compare cards correctly.
+     *
+     * @param other the reference object with which to compare.
+     * @return equals or not
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (this.getClass() != other.getClass()) {
+            return false;
+        }
+        Card otherCard = (Card) other;
+        return this.card == otherCard.card && this.suit == otherCard.suit;
+    }
+
+    /**
+     * Hash function override for using hashset correctly.
+     *
+     * @return hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(card, suit);
+    }
 
     /**
      * Возвращает строковое представление объекта. Переопределяет стандартную реализацию метода
