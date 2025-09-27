@@ -9,22 +9,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import ru.nsu.sharapov.Blackjack.GameEndings;
 
-class TestCardDeck extends CardDeck {
-
-    /**
-     * Subclass constructor for tests.
-     *
-     * @param deck Custom card deck
-     */
-    public TestCardDeck(ArrayList<Card> deck) {
-        this.deck = deck;
-    }
-
-    @Override
-    public void reset() {
-    }
-}
-
 
 public class BlackjackTest {
 
@@ -161,6 +145,22 @@ public class BlackjackTest {
         @Override
         public int askTakeCard() {
             return decisions.next();
+        }
+    }
+
+    class TestCardDeck extends CardDeck {
+
+        /**
+         * Subclass constructor for tests.
+         *
+         * @param deck Custom card deck
+         */
+        public TestCardDeck(ArrayList<Card> deck) {
+            this.deck = deck;
+        }
+
+        @Override
+        public void reset() {
         }
     }
 }
