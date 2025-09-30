@@ -18,9 +18,9 @@ public abstract class Expression {
     public static Map<String, Integer> parseVariables(String values) {
         Map<String, Integer> map = new HashMap<>();
         for (String part : values.split(";")) {
-            String[] key_value = part.split("=");
-            String key = key_value[0].trim();
-            Integer value = Integer.parseInt(key_value[1].trim());
+            String[] keyValue = part.split("=");
+            String key = keyValue[0].trim();
+            Integer value = Integer.parseInt(keyValue[1].trim());
             map.put(key, value);
         }
         return map;

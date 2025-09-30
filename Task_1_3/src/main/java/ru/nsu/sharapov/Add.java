@@ -8,7 +8,7 @@ public class Add extends BinaryOperation {
     /**
      * Constructor.
      *
-     * @param left Left expression
+     * @param left  Left expression
      * @param right Right expression
      */
     public Add(Expression left, Expression right) {

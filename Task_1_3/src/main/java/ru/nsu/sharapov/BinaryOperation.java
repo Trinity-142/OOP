@@ -15,8 +15,8 @@ public class BinaryOperation extends Expression {
     /**
      * Constructor of binary expression.
      *
-     * @param left Left expression
-     * @param right Right expression
+     * @param left      Left expression
+     * @param right     Right expression
      * @param operation Sign of expression
      */
     public BinaryOperation(Expression left, Expression right, Operation operation) {

@@ -43,11 +43,11 @@ public class Main {
                     case ')':
                         Expression right = stack.remove(stack.size() - 1);
                         try {
-                            BinaryOperation expr_without_right = (BinaryOperation) stack.remove(
+                            BinaryOperation exprWithoutRight = (BinaryOperation) stack.remove(
                                 stack.size() - 1);
                             stack.remove(stack.size() - 1); // null "("
-                            expr_without_right.setRight(right);
-                            stack.add(expr_without_right);
+                            exprWithoutRight.setRight(right);
+                            stack.add(exprWithoutRight);
                         } catch (ClassCastException exception) {
                             throw new ClassCastException("Expected BinaryOperation");
                         }
@@ -75,8 +75,8 @@ public class Main {
 
     public static void main(String[] args) {
         PrintWriter consoleWriter = new PrintWriter(System.out);
-        for (String str_expr : args) {
-            Expression expr = buildExpr(str_expr);
+        for (String strExpr : args) {
+            Expression expr = buildExpr(strExpr);
             expr.print(consoleWriter);
         }
     }

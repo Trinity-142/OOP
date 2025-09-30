@@ -8,7 +8,7 @@ public class Div extends BinaryOperation {
     /**
      * Constructor.
      *
-     * @param left Left expression
+     * @param left  Left expression
      * @param right Right expression
      */
     public Div(Expression left, Expression right) {

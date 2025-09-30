@@ -8,7 +8,7 @@ public class Mul extends BinaryOperation {
     /**
      * Constructor.
      *
-     * @param left Left expression
+     * @param left  Left expression
      * @param right Right expression
      */
     public Mul(Expression left, Expression right) {

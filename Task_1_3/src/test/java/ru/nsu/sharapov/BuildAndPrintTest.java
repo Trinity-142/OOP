@@ -11,16 +11,18 @@ import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 
 public class BuildAndPrintTest {
+
     String path = "actual.txt";
+
     @Test
     void buildAndPrint() {
         try (PrintWriter writer = new PrintWriter(path)) {
-            String str_expr = "(33+(2*zxc))";
-            Expression expr = buildExpr(str_expr);
+            String strExpr = "(33+(2*zxc))";
+            Expression expr = buildExpr(strExpr);
             expr.print(writer);
             writer.flush();
             String actual = Files.readString(Path.of(path));
-            assertEquals(str_expr, actual);
+            assertEquals(strExpr, actual);
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File not found: " + path, e);
         } catch (IOException e) {
