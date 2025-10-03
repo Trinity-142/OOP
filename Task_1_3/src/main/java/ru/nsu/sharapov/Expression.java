@@ -36,6 +36,11 @@ public abstract class Expression {
         writer.print(this);
     }
 
+    /**
+     * String representation of expressions.
+     *
+     * @return string representation
+     */
     public abstract String toString();
 
     /**
@@ -47,7 +52,7 @@ public abstract class Expression {
     public abstract Expression derivative(String variable);
 
     /**
-     * Abstract evaluation.
+     * Abstract evaluation with mapped variables and their values.
      *
      * @param varsValues Map of variables and their values
      * @return Result of evaluation
@@ -57,15 +62,21 @@ public abstract class Expression {
         throws NoSuchElementException;
 
     /**
+     * Abstract evaluation.
      *
-     *
-     * @param varsValues .
-     * @return .
-     * @throws NoSuchElementException .
+     * @param varsValues String of variables and their values, for example: "x = 10; y = 13"
+     * @return result of evaluation
+     * @throws NoSuchElementException if required variable is not found in varsValues
      */
     public double eval(String varsValues) throws NoSuchElementException {
         return evalMapped(parseVariables(varsValues));
     }
 
-
+    /**
+     * Abstract equality of expressions.
+     *
+     * @param obj the reference object with which to compare.
+     * @return equal or not
+     */
+    public abstract boolean equals(Object obj);
 }

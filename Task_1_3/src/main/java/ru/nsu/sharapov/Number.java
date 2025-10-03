@@ -19,9 +19,9 @@ public class Number extends Expression {
     }
 
     /**
-     * Number print method.
+     * String representation of number.
      *
-     * @return .
+     * @return string representation
      */
     @Override
     public String toString() {
@@ -40,7 +40,7 @@ public class Number extends Expression {
     }
 
     /**
-     * Evaluation of a number = number.
+     * Evaluation of a number.
      *
      * @param varsValues Map of variables and their values
      * @return Number value
@@ -48,5 +48,22 @@ public class Number extends Expression {
     @Override
     public double evalMapped(Map<String, Integer> varsValues) {
         return value;
+    }
+
+    /**
+     * Equality of numbers.
+     *
+     * @param obj the reference object with which to compare.
+     * @return equal or not
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof Number other) {
+            return this.value == other.value;
+        } else {
+            return false;
+        }
     }
 }

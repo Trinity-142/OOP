@@ -31,15 +31,20 @@ public abstract class BinaryOperation extends Expression {
     }
 
     /**
-     * Binary expression print method.
+     * String representation of binary expression.
      *
-     * @return Stpresentation
+     * @return string representation
      */
     @Override
     public String toString() {
         return "(" + left + getSign() + right + ")";
     }
 
+    /**
+     * Get operation sign.
+     *
+     * @return operation sign symbol
+     */
     public abstract char getSign();
 
     /**
@@ -59,4 +64,22 @@ public abstract class BinaryOperation extends Expression {
      */
     @Override
     public abstract double evalMapped(Map<String, Integer> varsValues);
+
+    /**
+     * Equality of binary expressions.
+     *
+     * @param obj the reference object with which to compare.
+     * @return equal or not
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof BinaryOperation other) {
+            return this.left.equals(other.left) && this.right.equals(other.right)
+                && this.getSign() == other.getSign();
+        } else {
+            return false;
+        }
+    }
 }

@@ -17,6 +17,11 @@ public class Div extends BinaryOperation {
         super(left, right);
     }
 
+    /**
+     * Get Div sign.
+     *
+     * @return '/'
+     */
     @Override
     public char getSign() {
         return '/';
@@ -31,9 +36,15 @@ public class Div extends BinaryOperation {
     @Override
     public Expression derivative(String variable) {
         return new Div(new Sub(new Mul(left.derivative(variable), right),
-            new Mul(left, right.derivative(variable))), new Mul(left, left));
+            new Mul(left, right.derivative(variable))), new Mul(right, right));
     }
 
+    /**
+     * Division evaluation.
+     *
+     * @param varsValues Map of variables and their values
+     * @return Result of evaluation
+     */
     @Override
     public double evalMapped(Map<String, Integer> varsValues) {
         return left.evalMapped(varsValues) / right.evalMapped(varsValues);

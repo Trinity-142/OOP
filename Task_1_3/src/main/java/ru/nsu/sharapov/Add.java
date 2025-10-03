@@ -17,6 +17,11 @@ public class Add extends BinaryOperation {
         super(left, right);
     }
 
+    /**
+     * Get Add sign.
+     *
+     * @return '+'
+     */
     @Override
     public char getSign() {
         return '+';
@@ -34,6 +39,12 @@ public class Add extends BinaryOperation {
         return new Add(left.derivative(variable), right.derivative(variable));
     }
 
+    /**
+     * Addition evaluation.
+     *
+     * @param varsValues Map of variables and their values
+     * @return Result of evaluation
+     */
     @Override
     public double evalMapped(Map<String, Integer> varsValues) {
         return left.evalMapped(varsValues) + right.evalMapped(varsValues);

@@ -1,7 +1,6 @@
 package ru.nsu.sharapov;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 public class Parser {
 
@@ -14,20 +13,20 @@ public class Parser {
     public static Expression buildExpr(String string) {
         StringBuilder number = new StringBuilder();
         StringBuilder variable = new StringBuilder();
-        List<Expression> stack = new ArrayList<>();
+        Stack<Expression> stack = new Stack<>();
         for (char symbol : string.toCharArray()) {
 
             if (Character.isDigit(symbol)) {
                 variable = new StringBuilder();
-                if (!stack.isEmpty() && stack.getLast() instanceof Number) {
-                    stack.removeLast();
+                if (!stack.isEmpty() && stack.peek() instanceof Number) {
+                    stack.pop();
                 }
                 number.append(symbol);
                 stack.add(new Number(Integer.parseInt(String.valueOf(number))));
             } else if (Character.isLetter(symbol)) {
                 number = new StringBuilder();
-                if (!stack.isEmpty() && stack.getLast() instanceof Variable) {
-                    stack.removeLast();
+                if (!stack.isEmpty() && stack.peek() instanceof Variable) {
+                    stack.pop();
                 }
                 variable.append(symbol);
                 stack.add(new Variable(String.valueOf(variable)));
@@ -39,10 +38,10 @@ public class Parser {
                         stack.add(null);
                         break;
                     case ')':
-                        Expression right = stack.removeLast();
+                        Expression right = stack.pop();
                         try {
-                            BinaryOperation exprWithoutRight = (BinaryOperation) stack.removeLast();
-                            stack.removeLast(); // null "("
+                            BinaryOperation exprWithoutRight = (BinaryOperation) stack.pop();
+                            stack.pop(); // null "("
                             exprWithoutRight.setRight(right);
                             stack.add(exprWithoutRight);
                         } catch (ClassCastException exception) {
@@ -50,16 +49,16 @@ public class Parser {
                         }
                         break;
                     case ('+'):
-                        stack.add(new Add(stack.removeLast(), null));
+                        stack.add(new Add(stack.pop(), null));
                         break;
                     case ('-'):
-                        stack.add(new Sub(stack.removeLast(), null));
+                        stack.add(new Sub(stack.pop(), null));
                         break;
                     case ('*'):
-                        stack.add(new Mul(stack.removeLast(), null));
+                        stack.add(new Mul(stack.pop(), null));
                         break;
                     case ('/'):
-                        stack.add(new Div(stack.removeLast(), null));
+                        stack.add(new Div(stack.pop(), null));
                         break;
                     default:
                         throw new IllegalArgumentException("Unexpected character: " + symbol);
@@ -67,6 +66,6 @@ public class Parser {
                 }
             }
         }
-        return stack.removeFirst();
+        return stack.pop();
     }
 }

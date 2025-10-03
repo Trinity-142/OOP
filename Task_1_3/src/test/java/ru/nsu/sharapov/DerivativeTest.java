@@ -3,50 +3,57 @@ package ru.nsu.sharapov;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.nsu.sharapov.Parser.buildExpr;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 
 public class DerivativeTest {
 
-    String path = "actual.txt";
-
     @Test
-    void derivativeVar() {
-        try (PrintWriter writer = new PrintWriter(path)) {
-            String str_expr = "(3+(2*x))";
-            Expression expr = buildExpr(str_expr);
-            Expression de = expr.derivative("x");
-            de.print(writer);
-            writer.flush();
-            String actual = Files.readString(Path.of(path));
-            String expected = "(0+((0*x)+(2*1)))";
-            assertEquals(expected, actual);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("File not found: " + path, e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    void add() {
+        String strExpr = "(8+(a+b))";
+        Expression expr = buildExpr(strExpr);
+        Expression de = expr.derivative("a");
+        String actual = de.toString();
+        String expected = "(0+(1+0))";
+        assertEquals(expected, actual);
     }
 
     @Test
-    void derivativeVars() {
-        try (PrintWriter writer = new PrintWriter(path)) {
-            String str_expr = "(3-(x/y))";
-            Expression expr = buildExpr(str_expr);
-            Expression de = expr.derivative("x");
-            de.print(writer);
-            writer.flush();
-            String actual = Files.readString(Path.of(path));
-            String expected = "(0-(((1*y)-(x*0))/(x*x)))";
-            assertEquals(expected, actual);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("File not found: " + path, e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    void sub() {
+        String strExpr = "((a-8)-b)";
+        Expression expr = buildExpr(strExpr);
+        Expression de = expr.derivative("b");
+        String actual = de.toString();
+        String expected = "((0-0)-1)";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void mul() {
+        String strExpr = "((8*b)*a)";
+        Expression expr = buildExpr(strExpr);
+        Expression de = expr.derivative("a");
+        String actual = de.toString();
+        String expected = "((((0*b)+(8*0))*a)+((8*b)*1))";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void div() {
+        String strExpr = "((a/b)/8)";
+        Expression expr = buildExpr(strExpr);
+        Expression de = expr.derivative("b");
+        String actual = de.toString();
+        String expected = "((((((0*b)-(a*1))/(b*b))*8)-((a/b)*0))/(8*8))";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void complex() {
+        String strExpr = "(((a*8)-(b+c))/(d*e))";
+        Expression expr = buildExpr(strExpr);
+        Expression de = expr.derivative("e");
+        String actual = de.toString();
+        String expected = "((((((0*8)+(a*0))-(0+0))*(d*e))-(((a*8)-(b+c))*((0*e)+(d*1))))/((d*e)*(d*e)))";
+        assertEquals(expected, actual);
     }
 }

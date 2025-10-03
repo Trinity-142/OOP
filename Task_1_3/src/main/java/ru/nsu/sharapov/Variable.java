@@ -2,6 +2,7 @@ package ru.nsu.sharapov;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 /**
  * Subclass of variable.
@@ -20,9 +21,9 @@ public class Variable extends Expression {
     }
 
     /**
-     * Variable name print method.
+     * String representation of variable.
      *
-     * @return .
+     * @return string representation
      */
     @Override
     public String toString() {
@@ -57,5 +58,22 @@ public class Variable extends Expression {
             throw new NoSuchElementException("Variable \"" + name + "\" is undefined.");
         }
         return varsValues.get(name);
+    }
+
+    /**
+     * Equality of variables.
+     *
+     * @param obj the reference object with which to compare
+     * @return variable names equal or not
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof Variable other) {
+            return Objects.equals(this.name, other.name);
+        } else {
+            return false;
+        }
     }
 }

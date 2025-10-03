@@ -11,6 +11,11 @@ public class Sub extends BinaryOperation {
         super(left, right);
     }
 
+    /**
+     * Get Sub sign.
+     *
+     * @return '-'
+     */
     @Override
     public char getSign() {
         return '-';
@@ -21,6 +26,12 @@ public class Sub extends BinaryOperation {
         return new Sub(left.derivative(variable), right.derivative(variable));
     }
 
+    /**
+     * Subtraction evaluation.
+     *
+     * @param varsValues Map of variables and their values
+     * @return Result of evaluation
+     */
     @Override
     public double evalMapped(Map<String, Integer> varsValues) {
         return left.evalMapped(varsValues) - right.evalMapped(varsValues);

@@ -17,6 +17,11 @@ public class Mul extends BinaryOperation {
         super(left, right);
     }
 
+    /**
+     * Get Mul sign.
+     *
+     * @return '*'
+     */
     @Override
     public char getSign() {
         return '*';
@@ -28,6 +33,12 @@ public class Mul extends BinaryOperation {
             new Mul(left, right.derivative(variable)));
     }
 
+    /**
+     * Multiplication evaluation.
+     *
+     * @param varsValues Map of variables and their values
+     * @return Result of evaluation
+     */
     @Override
     public double evalMapped(Map<String, Integer> varsValues) {
         return left.evalMapped(varsValues) * right.evalMapped(varsValues);
