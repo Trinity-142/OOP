@@ -31,7 +31,6 @@ public abstract class Expression {
      * Abstract print.
      *
      * @param writer Writer to the file or console
-     * @return
      */
     public void print(PrintWriter writer) {
         writer.print(this);
@@ -54,14 +53,15 @@ public abstract class Expression {
      * @return Result of evaluation
      * @throws NoSuchElementException if required variable is not found in varsValues
      */
-    protected abstract double evalMapped(Map<String, Integer> varsValues) throws NoSuchElementException;
+    protected abstract double evalMapped(Map<String, Integer> varsValues)
+        throws NoSuchElementException;
 
     /**
      *
      *
-     * @param varsValues
-     * @return
-     * @throws NoSuchElementException
+     * @param varsValues .
+     * @return .
+     * @throws NoSuchElementException .
      */
     public double eval(String varsValues) throws NoSuchElementException {
         return evalMapped(parseVariables(varsValues));

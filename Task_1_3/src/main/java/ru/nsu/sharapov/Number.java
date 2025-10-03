@@ -1,6 +1,5 @@
 package ru.nsu.sharapov;
 
-import java.io.PrintWriter;
 import java.util.Map;
 
 /**
@@ -22,8 +21,7 @@ public class Number extends Expression {
     /**
      * Number print method.
      *
-     * @param writer Writer to the file or console
-     * @return
+     * @return .
      */
     @Override
     public String toString() {

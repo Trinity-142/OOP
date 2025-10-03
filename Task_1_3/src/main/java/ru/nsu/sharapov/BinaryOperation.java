@@ -1,6 +1,5 @@
 package ru.nsu.sharapov;
 
-import java.io.PrintWriter;
 import java.util.Map;
 
 /**
@@ -14,8 +13,8 @@ public abstract class BinaryOperation extends Expression {
     /**
      * Constructor of binary expression.
      *
-     * @param left      Left expression
-     * @param right     Right expression
+     * @param left  Left expression
+     * @param right Right expression
      */
     public BinaryOperation(Expression left, Expression right) {
         this.left = left;
@@ -34,8 +33,7 @@ public abstract class BinaryOperation extends Expression {
     /**
      * Binary expression print method.
      *
-     * @param writer Writer to the file or console
-     * @return
+     * @return Stpresentation
      */
     @Override
     public String toString() {
