@@ -6,23 +6,20 @@ import java.util.Map;
 /**
  * Superclass of binary operations: add, sub, mul, div.
  */
-public class BinaryOperation extends Expression {
+public abstract class BinaryOperation extends Expression {
 
-    private final Expression left;
-    private final Operation operation;
-    private Expression right;
+    protected final Expression left;
+    protected Expression right;
 
     /**
      * Constructor of binary expression.
      *
      * @param left      Left expression
      * @param right     Right expression
-     * @param operation Sign of expression
      */
-    public BinaryOperation(Expression left, Expression right, Operation operation) {
+    public BinaryOperation(Expression left, Expression right) {
         this.left = left;
         this.right = right;
-        this.operation = operation;
     }
 
     /**
@@ -38,15 +35,14 @@ public class BinaryOperation extends Expression {
      * Binary expression print method.
      *
      * @param writer Writer to the file or console
+     * @return
      */
     @Override
-    public void print(PrintWriter writer) {
-        writer.print("(");
-        left.print(writer);
-        writer.print(operation);
-        right.print(writer);
-        writer.print(")");
+    public String toString() {
+        return "(" + left + getSign() + right + ")";
     }
+
+    public abstract char getSign();
 
     /**
      * Take derivative by variable.
@@ -55,16 +51,7 @@ public class BinaryOperation extends Expression {
      * @return New expression of the resulting derivative
      */
     @Override
-    public Expression derivative(String variable) {
-        return switch (operation.getSign()) {
-            case '+' -> new Add(left.derivative(variable), right.derivative(variable));
-            case '-' -> new Sub(left.derivative(variable), right.derivative(variable));
-            case '*' -> new Add(new Mul(left.derivative(variable), right),
-                new Mul(left, right.derivative(variable)));
-            default -> new Div(new Sub(new Mul(left.derivative(variable), right),
-                new Mul(left, right.derivative(variable))), new Mul(left, left));
-        };
-    }
+    public abstract Expression derivative(String variable);
 
     /**
      * Expression evaluation.
@@ -73,12 +60,5 @@ public class BinaryOperation extends Expression {
      * @return Result of evaluation
      */
     @Override
-    public double eval(Map<String, Integer> varsValues) {
-        return switch (operation.getSign()) {
-            case '+' -> left.eval(varsValues) + right.eval(varsValues);
-            case '-' -> left.eval(varsValues) - right.eval(varsValues);
-            case '*' -> left.eval(varsValues) * right.eval(varsValues);
-            default -> left.eval(varsValues) / right.eval(varsValues);
-        };
-    }
+    public abstract double evalMapped(Map<String, Integer> varsValues);
 }

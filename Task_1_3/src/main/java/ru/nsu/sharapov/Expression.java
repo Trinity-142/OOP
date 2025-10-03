@@ -3,6 +3,7 @@ package ru.nsu.sharapov;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 /**
  * Abstract class of expression.
@@ -15,7 +16,7 @@ public abstract class Expression {
      * @param values String of variables and their values, for example: "x = 10; y = 13"
      * @return Map: String variable -> Integer value
      */
-    public static Map<String, Integer> parseVariables(String values) {
+    protected static Map<String, Integer> parseVariables(String values) {
         Map<String, Integer> map = new HashMap<>();
         for (String part : values.split(";")) {
             String[] keyValue = part.split("=");
@@ -30,8 +31,13 @@ public abstract class Expression {
      * Abstract print.
      *
      * @param writer Writer to the file or console
+     * @return
      */
-    public abstract void print(PrintWriter writer);
+    public void print(PrintWriter writer) {
+        writer.print(this);
+    }
+
+    public abstract String toString();
 
     /**
      * Abstract derivative.
@@ -46,8 +52,20 @@ public abstract class Expression {
      *
      * @param varsValues Map of variables and their values
      * @return Result of evaluation
+     * @throws NoSuchElementException if required variable is not found in varsValues
      */
-    public abstract double eval(Map<String, Integer> varsValues);
+    protected abstract double evalMapped(Map<String, Integer> varsValues) throws NoSuchElementException;
+
+    /**
+     *
+     *
+     * @param varsValues
+     * @return
+     * @throws NoSuchElementException
+     */
+    public double eval(String varsValues) throws NoSuchElementException {
+        return evalMapped(parseVariables(varsValues));
+    }
 
 
 }

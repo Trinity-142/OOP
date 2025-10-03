@@ -1,13 +1,11 @@
 package ru.nsu.sharapov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.nsu.sharapov.Main.buildExpr;
+import static ru.nsu.sharapov.Parser.buildExpr;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 
 public class BuildAndPrintTest {
@@ -21,7 +19,7 @@ public class BuildAndPrintTest {
             Expression expr = buildExpr(strExpr);
             expr.print(writer);
             writer.flush();
-            String actual = Files.readString(Path.of(path));
+            String actual = expr.toString();
             assertEquals(strExpr, actual);
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File not found: " + path, e);

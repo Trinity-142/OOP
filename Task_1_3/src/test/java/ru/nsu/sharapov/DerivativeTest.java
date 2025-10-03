@@ -1,7 +1,7 @@
 package ru.nsu.sharapov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.nsu.sharapov.Main.buildExpr;
+import static ru.nsu.sharapov.Parser.buildExpr;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

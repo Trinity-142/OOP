@@ -23,10 +23,11 @@ public class Number extends Expression {
      * Number print method.
      *
      * @param writer Writer to the file or console
+     * @return
      */
     @Override
-    public void print(PrintWriter writer) {
-        writer.print(value);
+    public String toString() {
+        return String.valueOf(value);
     }
 
     /**
@@ -47,7 +48,7 @@ public class Number extends Expression {
      * @return Number value
      */
     @Override
-    public double eval(Map<String, Integer> varsValues) {
+    public double evalMapped(Map<String, Integer> varsValues) {
         return value;
     }
 }

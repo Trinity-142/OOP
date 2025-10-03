@@ -24,10 +24,11 @@ public class Variable extends Expression {
      * Variable name print method.
      *
      * @param writer Writer to the file or console
+     * @return
      */
     @Override
-    public void print(PrintWriter writer) {
-        writer.print(name);
+    public String toString() {
+        return name;
     }
 
     /**
@@ -50,9 +51,10 @@ public class Variable extends Expression {
      *
      * @param varsValues Map of variables and their values
      * @return Variable value
+     * @throws NoSuchElementException if required variable is not found in varsValues
      */
     @Override
-    public double eval(Map<String, Integer> varsValues) {
+    public double evalMapped(Map<String, Integer> varsValues) throws NoSuchElementException {
         if (!varsValues.containsKey(name)) {
             throw new NoSuchElementException("Variable \"" + name + "\" is undefined.");
         }
