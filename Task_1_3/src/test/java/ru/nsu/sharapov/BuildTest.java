@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class BuildTest {
 
-    String path = "actual.txt";
-
     @Test
     void add() {
         String strExpr = "((a+b)+128)";

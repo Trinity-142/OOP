@@ -18,6 +18,8 @@ public abstract class Expression {
      */
     protected static Map<String, Integer> parseVariables(String values) {
         Map<String, Integer> map = new HashMap<>();
+        if (!values.contains(";")) return map;
+
         for (String part : values.split(";")) {
             String[] keyValue = part.split("=");
             String key = keyValue[0].trim();

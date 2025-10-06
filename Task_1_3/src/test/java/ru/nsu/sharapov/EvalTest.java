@@ -1,11 +1,23 @@
 package ru.nsu.sharapov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static ru.nsu.sharapov.Parser.buildExpr;
 
+import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Test;
 
 public class EvalTest {
+
+    @Test
+    void noVars() {
+        String strExpr = "(3+2)";
+        Expression expr = buildExpr(strExpr);
+        double actual = expr.eval("");
+        double expected = 5;
+        assertEquals(expected, actual);
+    }
 
     @Test
     void add() {
@@ -50,5 +62,19 @@ public class EvalTest {
         double actual = expr.eval("x = 15; y = 10; z = 5");
         double expected = 1;
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void noRequiredVarValue() {
+        String strExpr = "(3+(((2*x)/y)-z))";
+        Expression expr = buildExpr(strExpr);
+        assertThrows(NoSuchElementException.class, () -> expr.eval("x = 15; y = 10"));
+    }
+
+    @Test
+    void noRequiredVarsValues() {
+        String strExpr = "(3+(((2*x)/y)-z))";
+        Expression expr = buildExpr(strExpr);
+        assertThrows(NoSuchElementException.class, () -> expr.eval(""));
     }
 }
