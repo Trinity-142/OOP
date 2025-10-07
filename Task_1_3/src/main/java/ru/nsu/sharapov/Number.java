@@ -51,6 +51,15 @@ public class Number extends Expression {
     }
 
     /**
+     * Number value getter.
+     *
+     * @return value
+     */
+    public int getValue() {
+        return this.value;
+    }
+
+    /**
      * Equality of numbers.
      *
      * @param obj the reference object with which to compare.
@@ -65,5 +74,15 @@ public class Number extends Expression {
         } else {
             return false;
         }
+    }
+
+    /**
+     * Simplifies expression.
+     *
+     * @return simplified expression
+     */
+    @Override
+    public Expression simplify() {
+        return this;
     }
 }

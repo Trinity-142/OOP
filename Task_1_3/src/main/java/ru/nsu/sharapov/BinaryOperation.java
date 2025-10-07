@@ -7,7 +7,7 @@ import java.util.Map;
  */
 public abstract class BinaryOperation extends Expression {
 
-    protected final Expression left;
+    protected Expression left;
     protected Expression right;
 
     /**

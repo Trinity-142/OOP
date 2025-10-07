@@ -2,7 +2,6 @@ package ru.nsu.sharapov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static ru.nsu.sharapov.Parser.buildExpr;
 
 import java.util.NoSuchElementException;

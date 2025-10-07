@@ -11,8 +11,8 @@ public class DerivativeTest {
     void add() {
         String strExpr = "(8+(a+b))";
         Expression expr = buildExpr(strExpr);
-        Expression actual = expr.derivative("a");
-        Add expected = new Add(new Number(0), new Add(new Number(1), new Number(0)));
+        Expression actual = expr.derivative("a").simplify();
+        Number expected = new Number(1);
         assertEquals(expected, actual);
     }
 
@@ -20,8 +20,8 @@ public class DerivativeTest {
     void sub() {
         String strExpr = "((a-8)-b)";
         Expression expr = buildExpr(strExpr);
-        Expression actual = expr.derivative("b");
-        Sub expected = new Sub(new Sub(new Number(0), new Number(0)), new Number(1));
+        Expression actual = expr.derivative("b").simplify();
+        Number expected = new Number(-1);
         assertEquals(expected, actual);
     }
 
@@ -29,10 +29,8 @@ public class DerivativeTest {
     void mul() {
         String strExpr = "((8*b)*a)";
         Expression expr = buildExpr(strExpr);
-        Expression actual = expr.derivative("a");
-        Add expected = new Add(new Mul(new Add(new Mul(new Number(0), new Variable("b")),
-            new Mul(new Number(8), new Number(0))), new Variable("a")),
-            new Mul(new Mul(new Number(8), new Variable("b")), new Number(1)));
+        Expression actual = expr.derivative("a").simplify();
+        Mul expected = new Mul(new Number(8), new Variable("b"));
         assertEquals(expected, actual);
     }
 
@@ -40,23 +38,38 @@ public class DerivativeTest {
     void div() {
         String strExpr = "((a/b)/8)";
         Expression expr = buildExpr(strExpr);
-        Expression actual = expr.derivative("b");
-        Div expected = new Div(new Sub(new Mul(new Div(
-            new Sub(new Mul(new Number(0), new Variable("b")),
-                new Mul(new Variable("a"), new Number(1))),
-            new Mul(new Variable("b"), new Variable("b"))), new Number(8)),
-            new Mul(new Div(new Variable("a"), new Variable("b")), new Number(0))),
-            new Mul(new Number(8), new Number(8)));
+        Expression actual = expr.derivative("b").simplify();
+        Div expected = new Div(new Mul(new Div(new Sub(new Number(0), new Variable("a")),
+            new Mul(new Variable("b"), new Variable("b"))), new Number(8)), new Number(64));
         assertEquals(expected, actual);
     }
-    /*
+
     @Test
     void complex() {
         String strExpr = "(((a*8)-(b+c))/(d*e))";
         Expression expr = buildExpr(strExpr);
-        Expression actual = expr.derivative("e");
-        expected =
+        Expression actual = expr.derivative("e").simplify();
+        System.out.println(actual);
+        Div expected =
+            new Div(
+                new Sub(
+                    new Number(0),
+                    new Mul(
+                        new Sub(
+                            new Mul(
+                                new Variable("a"),
+                                new Number(8)),
+                            new Add(
+                                new Variable("b"),
+                                new Variable("c"))),
+                        new Variable("d"))),
+                new Mul(
+                    new Mul(
+                        new Variable("d"),
+                        new Variable("e")),
+                    new Mul(
+                        new Variable("d"),
+                        new Variable("e"))));
         assertEquals(expected, actual);
     }
-    */
 }
