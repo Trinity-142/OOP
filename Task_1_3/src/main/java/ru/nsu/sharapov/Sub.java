@@ -51,7 +51,7 @@ public class Sub extends BinaryOperation {
         if (simplifiedLeft instanceof Number a && simplifiedRight instanceof Number b) {
             return new Number(a.getValue() - b.getValue());
         }
-        if (simplifiedLeft == simplifiedRight) {
+        if (Objects.equals(simplifiedLeft, simplifiedRight)) {
             return zero;
         }
         if (Objects.equals(simplifiedRight, zero)) {
