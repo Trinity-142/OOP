@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Graph represented by adjacency list.
+ */
 public class AdjacencyListGraph extends AbstractGraph {
 
     private final Map<Integer, Set<Integer>> adj = new HashMap<>();

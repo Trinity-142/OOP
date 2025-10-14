@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Graph represented by adjacency matrix.
+ */
 public class AdjacencyMatrixGraph extends AbstractGraph {
 
     private final List<List<Boolean>> adj = new ArrayList<>();

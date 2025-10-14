@@ -2,6 +2,9 @@ package ru.nsu.sharapov;
 
 import java.util.Set;
 
+/**
+ * Graph interface.
+ */
 public interface Graph {
 
     void addNode(Integer node);

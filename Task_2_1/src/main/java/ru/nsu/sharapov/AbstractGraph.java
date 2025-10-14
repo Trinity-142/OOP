@@ -3,6 +3,9 @@ package ru.nsu.sharapov;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Abstract graph.
+ */
 public abstract class AbstractGraph implements Graph {
 
     protected Integer n;

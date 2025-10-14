@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 
+/**
+ * File reader and graph builder.
+ */
 public class GraphFileReader {
 
     /**

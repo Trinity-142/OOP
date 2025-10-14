@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Graph represented by incidence matrix.
+ */
 public class IncidenceMatrixGraph extends AbstractGraph {
 
     private final List<List<Integer>> adj = new ArrayList<>();
