@@ -5,20 +5,20 @@ import java.util.Set;
 
 public abstract class AbstractGraph implements Graph {
 
-    protected Integer N;
-    protected Integer E;
+    protected Integer n;
+    protected Integer e;
     protected Set<Integer> nodes = new HashSet<>();
     protected Set<Edge> edges = new HashSet<>();
 
     /**
      * Constructor.
      *
-     * @param N number of nodes
-     * @param E number of edges
+     * @param n number of nodes
+     * @param e number of edges
      */
-    public AbstractGraph(Integer N, Integer E) {
-        this.N = N;
-        this.E = E;
+    public AbstractGraph(Integer n, Integer e) {
+        this.n = n;
+        this.e = e;
     }
 
     /**
@@ -47,11 +47,11 @@ public abstract class AbstractGraph implements Graph {
     @Override
     public String toString() {
         return String.format("Graph with %d nodes and %d edges.\nNodes: %s\nEdges: %s\n",
-            N, E, getNodes(), getEdges());
+            n, e, getNodes(), getEdges());
     }
 
     public Integer getNodesCount() {
-        return N;
+        return n;
     }
 
     /**

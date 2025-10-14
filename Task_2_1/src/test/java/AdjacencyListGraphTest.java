@@ -9,9 +9,9 @@ public class AdjacencyListGraphTest {
 
     @Test
     void addNode() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyListGraph graph = new AdjacencyListGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyListGraph graph = new AdjacencyListGraph(n, e);
         graph.addNode(0);
         graph.addNode(1);
         graph.addNode(2);
@@ -20,9 +20,9 @@ public class AdjacencyListGraphTest {
 
     @Test
     void removeNode() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyListGraph graph = new AdjacencyListGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyListGraph graph = new AdjacencyListGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -33,9 +33,9 @@ public class AdjacencyListGraphTest {
 
     @Test
     void addEdge() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyListGraph graph = new AdjacencyListGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyListGraph graph = new AdjacencyListGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -44,9 +44,9 @@ public class AdjacencyListGraphTest {
 
     @Test
     void removeEdge() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyListGraph graph = new AdjacencyListGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyListGraph graph = new AdjacencyListGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -56,9 +56,9 @@ public class AdjacencyListGraphTest {
 
     @Test
     void getNeighbours() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyListGraph graph = new AdjacencyListGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyListGraph graph = new AdjacencyListGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));

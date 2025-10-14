@@ -10,12 +10,12 @@ public class CompareGraphsTest {
 
     @Test
     void compare() {
-        Integer N = 3;
-        Integer E = 3;
+        Integer n = 3;
+        Integer e = 3;
 
-        AdjacencyListGraph graph1 = new AdjacencyListGraph(N, E);
-        AdjacencyMatrixGraph graph2 = new AdjacencyMatrixGraph(N, E);
-        IncidenceMatrixGraph graph3 = new IncidenceMatrixGraph(N, E);
+        AdjacencyListGraph graph1 = new AdjacencyListGraph(n, e);
+        AdjacencyMatrixGraph graph2 = new AdjacencyMatrixGraph(n, e);
+        IncidenceMatrixGraph graph3 = new IncidenceMatrixGraph(n, e);
 
         Edge[] edges = {new Edge(0, 1), new Edge(1, 2), new Edge(2, 0)};
         for (Edge edge : edges) {

@@ -9,9 +9,9 @@ public class IncidenceMatrixGraphTest {
 
     @Test
     void addNode() {
-        Integer N = 3;
-        Integer E = 3;
-        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(n, e);
         graph.addNode(0);
         graph.addNode(1);
         graph.addNode(2);
@@ -20,9 +20,9 @@ public class IncidenceMatrixGraphTest {
 
     @Test
     void removeNode() {
-        Integer N = 3;
-        Integer E = 3;
-        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -33,9 +33,9 @@ public class IncidenceMatrixGraphTest {
 
     @Test
     void addEdge() {
-        Integer N = 3;
-        Integer E = 3;
-        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -44,9 +44,9 @@ public class IncidenceMatrixGraphTest {
 
     @Test
     void removeEdge() {
-        Integer N = 3;
-        Integer E = 3;
-        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -56,9 +56,9 @@ public class IncidenceMatrixGraphTest {
 
     @Test
     void getNeighbours() {
-        Integer N = 3;
-        Integer E = 3;
-        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        IncidenceMatrixGraph graph = new IncidenceMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));

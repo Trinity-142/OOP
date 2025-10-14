@@ -12,14 +12,14 @@ public class AdjacencyMatrixGraph extends AbstractGraph {
     /**
      * Constructor.
      *
-     * @param N number of nodes
-     * @param E number of edges
+     * @param n number of nodes
+     * @param e number of edges
      */
-    public AdjacencyMatrixGraph(Integer N, Integer E) {
-        super(N, E);
-        for (int i = 0; i < N; ++i) {
+    public AdjacencyMatrixGraph(Integer n, Integer e) {
+        super(n, e);
+        for (int i = 0; i < n; ++i) {
             List<Boolean> row = new ArrayList<>();
-            for (int j = 0; j < N; ++j) {
+            for (int j = 0; j < n; ++j) {
                 row.add(false);
             }
             adj.add(row);
@@ -43,11 +43,11 @@ public class AdjacencyMatrixGraph extends AbstractGraph {
      */
     @Override
     public void removeNode(Integer node) {
-        for (int i = 0; i < N; ++i) {
+        for (int i = 0; i < n; ++i) {
             removeEdge(new Edge(node, i));
         }
 
-        for (int i = 0; i < N; ++i) {
+        for (int i = 0; i < n; ++i) {
             removeEdge(new Edge(i, node));
         }
         nodes.remove(node);

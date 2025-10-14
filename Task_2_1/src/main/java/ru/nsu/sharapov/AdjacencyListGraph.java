@@ -13,12 +13,12 @@ public class AdjacencyListGraph extends AbstractGraph {
     /**
      * Constructor.
      *
-     * @param N number of nodes
-     * @param E number of edges
+     * @param n number of nodes
+     * @param e number of edges
      */
-    public AdjacencyListGraph(Integer N, Integer E) {
-        super(N, E);
-        for (int i = 0; i < N; ++i) {
+    public AdjacencyListGraph(Integer n, Integer e) {
+        super(n, e);
+        for (int i = 0; i < n; ++i) {
             adj.put(i, new HashSet<>());
         }
     }

@@ -15,14 +15,14 @@ public class IncidenceMatrixGraph extends AbstractGraph {
     /**
      * Constructor.
      *
-     * @param N number of nodes
-     * @param E number of edges
+     * @param n number of nodes
+     * @param e number of edges
      */
-    public IncidenceMatrixGraph(Integer N, Integer E) {
-        super(N, E);
-        for (int i = 0; i < N; ++i) {
+    public IncidenceMatrixGraph(Integer n, Integer e) {
+        super(n, e);
+        for (int i = 0; i < n; ++i) {
             List<Integer> row = new ArrayList<>();
-            for (int j = 0; j < E; ++j) {
+            for (int j = 0; j < e; ++j) {
                 row.add(0);
             }
             adj.add(row);
@@ -46,7 +46,7 @@ public class IncidenceMatrixGraph extends AbstractGraph {
      */
     @Override
     public void removeNode(Integer node) {
-        for (int i = 0; i < E; ++i) {
+        for (int i = 0; i < e; ++i) {
             if (adj.get(node).get(i) != 0) {
                 Edge edge = indexToEdge.get(i);
                 adj.get(edge.from()).set(i, 0);
@@ -91,9 +91,9 @@ public class IncidenceMatrixGraph extends AbstractGraph {
     @Override
     public Set<Integer> getNeighbours(Integer node) {
         Set<Integer> res = new HashSet<>();
-        for (int i = 0; i < E; ++i) {
+        for (int i = 0; i < e; ++i) {
             if (adj.get(node).get(i) == 1) {
-                for (int j = 0; j < N; ++j) {
+                for (int j = 0; j < n; ++j) {
                     if (adj.get(j).get(i) == -1) {
                         res.add(j);
                     }

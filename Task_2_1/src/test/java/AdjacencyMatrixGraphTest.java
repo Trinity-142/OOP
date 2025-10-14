@@ -9,9 +9,9 @@ public class AdjacencyMatrixGraphTest {
 
     @Test
     void addNode() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
         graph.addNode(0);
         graph.addNode(1);
         graph.addNode(2);
@@ -20,9 +20,9 @@ public class AdjacencyMatrixGraphTest {
 
     @Test
     void removeNode() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -33,9 +33,9 @@ public class AdjacencyMatrixGraphTest {
 
     @Test
     void addEdge() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -44,9 +44,9 @@ public class AdjacencyMatrixGraphTest {
 
     @Test
     void removeEdge() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
@@ -56,9 +56,9 @@ public class AdjacencyMatrixGraphTest {
 
     @Test
     void getNeighbours() {
-        Integer N = 3;
-        Integer E = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(N, E);
+        Integer n = 3;
+        Integer e = 3;
+        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
         graph.addEdge(new Edge(0, 1));
         graph.addEdge(new Edge(1, 2));
         graph.addEdge(new Edge(2, 0));
