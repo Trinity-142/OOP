@@ -37,7 +37,7 @@ loadScripts(document, 'script');</script>
 <p>Summary:</p>
 <ul>
 <li>Nested</li>
-<li><a href="#field-summary">Field</a></li>
+<li>Field</li>
 <li><a href="#constructor-summary">Constr</a></li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -57,7 +57,7 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -100,15 +100,6 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
-<!-- =========== FIELD SUMMARY =========== -->
-<li>
-<section class="field-summary" id="field-summary">
-<h2>Field Summary</h2>
-<div class="inherited-list">
-<h3 id="fields-inherited-from-class-ru.nsu.sharapov.AbstractGraph">Fields inherited from class&nbsp;ru.nsu.sharapov.<a href="AbstractGraph.html" title="class in ru.nsu.sharapov">AbstractGraph</a></h3>
-<code><a href="AbstractGraph.html#e">e</a>, <a href="AbstractGraph.html#edges">edges</a>, <a href="AbstractGraph.html#n">n</a>, <a href="AbstractGraph.html#nodes">nodes</a></code></div>
-</section>
-</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -117,8 +108,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.Integer,java.lang.Integer)" class="member-name-link">AdjacencyListGraph</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;n,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;e)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">AdjacencyListGraph</a>()</code></div>
 <div class="col-last even-row-color">
 <div class="block">Constructor.</div>
 </div>
@@ -154,12 +144,23 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNeighbours(java.lang.Integer)" class="member-name-link">getNeighbours</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;node)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns list of neighbour nodes for specified node.</div>
+<div class="block">Returns set of neighbour nodes for specified node.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNodes()" class="member-name-link">getNodes</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns set of nodes in graph.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNodesCount()" class="member-name-link">getNodesCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gives count of nodes in graph.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a>&gt;<br>T</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readFromFile(java.lang.String,java.lang.Class)" class="member-name-link">readFromFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filename,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;graphType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Reads graph data from file and creates specified graph type instance.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeEdge(ru.nsu.sharapov.Edge)" class="member-name-link">removeEdge</a><wbr>(<a href="Edge.html" title="class in ru.nsu.sharapov">Edge</a>&nbsp;edge)</code></div>
@@ -171,12 +172,17 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Removes node from graph.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">String representation.</div>
+</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-ru.nsu.sharapov.AbstractGraph">Methods inherited from class&nbsp;ru.nsu.sharapov.<a href="AbstractGraph.html" title="class in ru.nsu.sharapov">AbstractGraph</a></h3>
-<code><a href="AbstractGraph.html#equals(java.lang.Object)">equals</a>, <a href="AbstractGraph.html#getNodesCount()">getNodesCount</a>, <a href="AbstractGraph.html#toString()">toString</a></code></div>
+<code><a href="AbstractGraph.html#equals(java.lang.Object)">equals</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -192,16 +198,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.Integer,java.lang.Integer)">
+<section class="detail" id="&lt;init&gt;()">
 <h3>AdjacencyListGraph</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AdjacencyListGraph</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;n,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;e)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AdjacencyListGraph</span>()</div>
 <div class="block">Constructor.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>n</code> - number of nodes</dd>
-<dd><code>e</code> - number of edges</dd>
-</dl>
 </section>
 </li>
 </ul>
@@ -213,10 +213,64 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="readFromFile(java.lang.String,java.lang.Class)">
+<h3>readFromFile</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">readFromFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filename,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;graphType)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#readFromFile(java.lang.String,java.lang.Class)">Graph</a></code></span></div>
+<div class="block">Reads graph data from file and creates specified graph type instance.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Graph.html#readFromFile(java.lang.String,java.lang.Class)">readFromFile</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
+<dt>Overrides:</dt>
+<dd><code><a href="AbstractGraph.html#readFromFile(java.lang.String,java.lang.Class)">readFromFile</a></code>&nbsp;in class&nbsp;<code><a href="AbstractGraph.html" title="class in ru.nsu.sharapov">AbstractGraph</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>filename</code> - text file with graph data in "vertices edges" and "from to" format</dd>
+<dd><code>graphType</code> - type of graph to create</dd>
+<dt>Returns:</dt>
+<dd>new graph instance filled with data from file</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="toString()">
+<h3>toString</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#toString()">Graph</a></code></span></div>
+<div class="block">String representation.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Graph.html#toString()">toString</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="AbstractGraph.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="AbstractGraph.html" title="class in ru.nsu.sharapov">AbstractGraph</a></code></dd>
+<dt>Returns:</dt>
+<dd>string</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getNodesCount()">
+<h3>getNodesCount</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getNodesCount</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getNodesCount()">Graph</a></code></span></div>
+<div class="block">Gives count of nodes in graph.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Graph.html#getNodesCount()">getNodesCount</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="AbstractGraph.html#getNodesCount()">getNodesCount</a></code>&nbsp;in class&nbsp;<code><a href="AbstractGraph.html" title="class in ru.nsu.sharapov">AbstractGraph</a></code></dd>
+<dt>Returns:</dt>
+<dd>count of nodes</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="addNode(java.lang.Integer)">
 <h3>addNode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addNode</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;node)</span></div>
-<div class="block">Adds node to graph.</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addNode(java.lang.Integer)">Graph</a></code></span></div>
+<div class="block">Adds node to graph. If graph already contains the node, the call leaves the graph unchanged
+ and returns.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#addNode(java.lang.Integer)">addNode</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
@@ -231,7 +285,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="removeNode(java.lang.Integer)">
 <h3>removeNode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeNode</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;node)</span></div>
-<div class="block">Removes node from graph.</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeNode(java.lang.Integer)">Graph</a></code></span></div>
+<div class="block">Removes node from graph. If graph doesn't contain the node, the call leaves the graph
+ unchanged and returns.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#removeNode(java.lang.Integer)">removeNode</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
@@ -246,7 +302,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addEdge(ru.nsu.sharapov.Edge)">
 <h3>addEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="Edge.html" title="class in ru.nsu.sharapov">Edge</a>&nbsp;edge)</span></div>
-<div class="block">Adds edge to graph.</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addEdge(ru.nsu.sharapov.Edge)">Graph</a></code></span></div>
+<div class="block">Adds edge to graph. If graph already contains the edge, the call leaves the graph unchanged
+ and returns.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#addEdge(ru.nsu.sharapov.Edge)">addEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
@@ -261,7 +319,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="removeEdge(ru.nsu.sharapov.Edge)">
 <h3>removeEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeEdge</span><wbr><span class="parameters">(<a href="Edge.html" title="class in ru.nsu.sharapov">Edge</a>&nbsp;edge)</span></div>
-<div class="block">Removes edge from graph.</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeEdge(ru.nsu.sharapov.Edge)">Graph</a></code></span></div>
+<div class="block">Removes edge from graph. If graph doesn't contain the edge, the call leaves the graph
+ unchanged and returns.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#removeEdge(ru.nsu.sharapov.Edge)">removeEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
@@ -276,7 +336,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getNeighbours(java.lang.Integer)">
 <h3>getNeighbours</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">getNeighbours</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;node)</span></div>
-<div class="block">Returns list of neighbour nodes for specified node.</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getNeighbours(java.lang.Integer)">Graph</a></code></span></div>
+<div class="block">Returns set of neighbour nodes for specified node. If node hasn't any neighbours, returns
+ empty set.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#getNeighbours(java.lang.Integer)">getNeighbours</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
@@ -293,7 +355,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getEdges()">
 <h3>getEdges</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Edge.html" title="class in ru.nsu.sharapov">Edge</a>&gt;</span>&nbsp;<span class="element-name">getEdges</span>()</div>
-<div class="block">Returns set of edges in graph.</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getEdges()">Graph</a></code></span></div>
+<div class="block">Returns set of edges in graph. If graph hasn't any edges, returns empty set.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#getEdges()">getEdges</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
@@ -308,7 +371,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getNodes()">
 <h3>getNodes</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">getNodes</span>()</div>
-<div class="block">Returns set of nodes in graph.</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getNodes()">Graph</a></code></span></div>
+<div class="block">Returns set of nodes in graph. If graph hasn't any nodes, returns empty set.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#getNodes()">getNodes</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.sharapov">Graph</a></code></dd>
