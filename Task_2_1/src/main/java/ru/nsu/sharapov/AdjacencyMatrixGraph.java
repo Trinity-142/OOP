@@ -1,8 +1,13 @@
 package ru.nsu.sharapov;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -10,110 +15,129 @@ import java.util.Set;
  */
 public class AdjacencyMatrixGraph extends AbstractGraph {
 
-    private final List<List<Boolean>> adj = new ArrayList<>();
+    private final List<List<Boolean>> adj;
+    private final Map<Integer, Integer> nodeToIndex;
+    private final Set<Edge> edges;
 
     /**
      * Constructor.
-     *
-     * @param n number of nodes
-     * @param e number of edges
      */
-    public AdjacencyMatrixGraph(Integer n, Integer e) {
-        super(n, e);
-        for (int i = 0; i < n; ++i) {
-            List<Boolean> row = new ArrayList<>();
-            for (int j = 0; j < n; ++j) {
-                row.add(false);
+    public AdjacencyMatrixGraph() {
+        adj = new ArrayList<>();
+        nodeToIndex = new HashMap<>();
+        edges = new HashSet<>();
+    }
+
+    @Override
+    public <T extends Graph> T readFromFile(String filename, Class<T> graphType) {
+        T graph = super.readFromFile(filename, graphType);
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String str;
+            while ((str = reader.readLine()) != null) {
+                String[] from_to = str.split(" ");
+                Integer from = Integer.parseInt(from_to[0]);
+                Integer to = Integer.parseInt(from_to[1]);
+                graph.addEdge(new Edge(from, to));
             }
-            adj.add(row);
+            return graph;
+
+        } catch (IOException e) {
+            throw new RuntimeException("File error: " + e.getMessage(), e);
         }
     }
 
-    /**
-     * Adds node to graph.
-     *
-     * @param node node to add
-     */
+    @Override
+    public String toString() {
+        return String.format("Graph with %d nodes and %d edges.\nNodes: %s\nEdges: %s\n",
+            nodeToIndex.size(), edges.size(), getNodes(), getEdges());
+    }
+
+    @Override
+    public Integer getNodesCount() {
+        return nodeToIndex.size();
+    }
+
     @Override
     public void addNode(Integer node) {
-        nodes.add(node);
+        if (nodeToIndex.containsKey(node)) {
+            return;
+        }
+
+        nodeToIndex.put(node, adj.size());
+        adj.add(new ArrayList<>());
+        for (int i = 0; i < nodeToIndex.size() - 1; ++i) {
+            adj.getLast().add(false);
+        }
+        for (List<Boolean> adj : adj) {
+            adj.add(false);
+        }
     }
 
-    /**
-     * Removes node from graph.
-     *
-     * @param node node to remove
-     */
     @Override
     public void removeNode(Integer node) {
-        for (int i = 0; i < n; ++i) {
+        if (!nodeToIndex.containsKey(node)) {
+            return;
+        }
+
+        for (int i = 0; i < adj.size(); ++i) {
             removeEdge(new Edge(node, i));
         }
-
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < adj.size(); ++i) {
             removeEdge(new Edge(i, node));
         }
-        nodes.remove(node);
+        nodeToIndex.remove(node);
     }
 
-    /**
-     * Adds edge to graph.
-     *
-     * @param edge edge to add
-     */
     @Override
     public void addEdge(Edge edge) {
+        if (edges.contains(edge)) {
+            return;
+        }
+
         addNode(edge.from());
         addNode(edge.to());
-        adj.get(edge.from()).set(edge.to(), true);
+        Integer fromIndex = nodeToIndex.get(edge.from());
+        Integer toIndex = nodeToIndex.get(edge.to());
+        adj.get(fromIndex).set(toIndex, true);
         edges.add(edge);
     }
 
-    /**
-     * Removes edge from graph.
-     *
-     * @param edge edge to remove
-     */
     @Override
     public void removeEdge(Edge edge) {
-        adj.get(edge.from()).set(edge.to(), false);
+        if (!edges.contains(edge)) {
+            return;
+        }
+
+        Integer fromIndex = nodeToIndex.get(edge.from());
+        Integer toIndex = nodeToIndex.get(edge.to());
+        adj.get(fromIndex).set(toIndex, false);
         edges.remove(edge);
     }
 
-    /**
-     * Returns list of neighbour nodes for specified node.
-     *
-     * @param node node to get neighbours for
-     * @return set of neighbour nodes
-     */
     @Override
     public Set<Integer> getNeighbours(Integer node) {
         Set<Integer> res = new HashSet<>();
-        for (int i = 0; i < adj.size(); ++i) {
-            if (adj.get(node).get(i)) {
+        if (!nodeToIndex.containsKey(node)) {
+            return res;
+        }
+
+        for (int i : nodeToIndex.keySet()) {
+            Integer neighbourIndex = nodeToIndex.get(i);
+            Integer nodeIndex = nodeToIndex.get(node);
+            if (adj.get(nodeIndex).get(neighbourIndex)) {
                 res.add(i);
             }
         }
         return res;
     }
 
-    /**
-     * Returns set of edges in graph.
-     *
-     * @return set of edges
-     */
     @Override
     public Set<Edge> getEdges() {
         return edges;
     }
 
-    /**
-     * Returns set of nodes in graph.
-     *
-     * @return set of nodes
-     */
     @Override
     public Set<Integer> getNodes() {
-        return nodes;
+        return nodeToIndex.keySet();
     }
 }

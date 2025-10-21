@@ -1,5 +1,8 @@
 package ru.nsu.sharapov;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,92 +15,118 @@ import java.util.Set;
  */
 public class IncidenceMatrixGraph extends AbstractGraph {
 
-    private final List<List<Integer>> adj = new ArrayList<>();
-    private final Map<Integer, Edge> indexToEdge = new HashMap<>();
+    private final List<List<Integer>> adj;
+    private final Map<Edge, Integer> edgeToIndex;
+    private final Map<Integer, Integer> nodeToIndex;
 
     /**
      * Constructor.
-     *
-     * @param n number of nodes
-     * @param e number of edges
      */
-    public IncidenceMatrixGraph(Integer n, Integer e) {
-        super(n, e);
-        for (int i = 0; i < n; ++i) {
-            List<Integer> row = new ArrayList<>();
-            for (int j = 0; j < e; ++j) {
-                row.add(0);
+    public IncidenceMatrixGraph() {
+        adj = new ArrayList<>();
+        edgeToIndex = new HashMap<>();
+        nodeToIndex = new HashMap<>();
+    }
+
+    @Override
+    public <T extends Graph> T readFromFile(String filename, Class<T> graphType) {
+        T graph = super.readFromFile(filename, graphType);
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String str;
+            while ((str = reader.readLine()) != null) {
+                String[] from_to = str.split(" ");
+                Integer from = Integer.parseInt(from_to[0]);
+                Integer to = Integer.parseInt(from_to[1]);
+                graph.addEdge(new Edge(from, to));
             }
-            adj.add(row);
+            return graph;
+
+        } catch (IOException e) {
+            throw new RuntimeException("File error: " + e.getMessage(), e);
         }
     }
 
-    /**
-     * Adds node to graph.
-     *
-     * @param node node to add
-     */
+    @Override
+    public String toString() {
+        return String.format("Graph with %d nodes and %d edges.\nNodes: %s\nEdges: %s\n",
+            nodeToIndex.size(), edgeToIndex.size(), getNodes(), getEdges());
+    }
+
+    @Override
+    public Integer getNodesCount() {
+        return nodeToIndex.size();
+    }
+
     @Override
     public void addNode(Integer node) {
-        nodes.add(node);
+        if (nodeToIndex.containsKey(node)) {
+            return;
+        }
+
+        nodeToIndex.put(node, adj.size());
+        adj.add(new ArrayList<>());
+        for (int i = 0; i < edgeToIndex.size(); ++i) {
+            adj.getLast().add(0);
+        }
     }
 
-    /**
-     * Removes node from graph.
-     *
-     * @param node node to remove
-     */
+
     @Override
     public void removeNode(Integer node) {
-        for (int i = 0; i < e; ++i) {
-            if (adj.get(node).get(i) != 0) {
-                Edge edge = indexToEdge.get(i);
-                adj.get(edge.from()).set(i, 0);
-                adj.get(edge.to()).set(i, 0);
-                removeEdge(indexToEdge.get(i));
-            }
+        if (!nodeToIndex.containsKey(node)) {
+            return;
         }
-        nodes.remove(node);
+
+        Integer nodeIndex = nodeToIndex.get(node);
+        for (int i = 0; i < nodeToIndex.size(); ++i) {
+            removeEdge(new Edge(nodeIndex, i));
+            removeEdge(new Edge(i, nodeIndex));
+        }
+        nodeToIndex.remove(node);
     }
 
-    /**
-     * Adds edge to graph.
-     *
-     * @param edge edge to add
-     */
     @Override
     public void addEdge(Edge edge) {
+        if (edgeToIndex.containsKey(edge)) {
+            return;
+        }
+
         addNode(edge.from());
         addNode(edge.to());
-        adj.get(edge.from()).set(indexToEdge.size(), 1);
-        adj.get(edge.to()).set(indexToEdge.size(), -1);
-        edges.add(edge);
-        indexToEdge.put(indexToEdge.size(), edge);
+        for (int i = 0; i < nodeToIndex.size(); ++i) {
+            adj.get(i).add(0);
+        }
+        Integer fromIndex = nodeToIndex.get(edge.from());
+        Integer toIndex = nodeToIndex.get(edge.to());
+        adj.get(fromIndex).set(edgeToIndex.size(), 1);
+        adj.get(toIndex).set(edgeToIndex.size(), -1);
+        edgeToIndex.put(edge, edgeToIndex.size());
     }
 
-    /**
-     * Removes edge from graph.
-     *
-     * @param edge edge to remove
-     */
     @Override
     public void removeEdge(Edge edge) {
-        edges.remove(edge);
+        if (!edgeToIndex.containsKey(edge)) {
+            return;
+        }
+
+        for (int i = 0; i < nodeToIndex.size(); ++i) {
+            adj.get(i).set(edgeToIndex.get(edge), 0);
+        }
+        edgeToIndex.remove(edge);
     }
 
-    /**
-     * Returns list of neighbour nodes for specified node.
-     *
-     * @param node node to get neighbours for
-     * @return set of neighbour nodes
-     */
     @Override
     public Set<Integer> getNeighbours(Integer node) {
         Set<Integer> res = new HashSet<>();
-        for (int i = 0; i < e; ++i) {
-            if (adj.get(node).get(i) == 1) {
-                for (int j = 0; j < n; ++j) {
-                    if (adj.get(j).get(i) == -1) {
+        if (!nodeToIndex.containsKey(node)) {
+            return res;
+        }
+
+        for (int i = 0; i < edgeToIndex.size(); ++i) {
+            Integer nodeIndex = nodeToIndex.get(node);
+            if (adj.get(nodeIndex).get(i) == 1) {
+                for (int j : nodeToIndex.keySet()) {
+                    if (adj.get(nodeToIndex.get(j)).get(i) == -1) {
                         res.add(j);
                     }
                 }
@@ -106,23 +135,13 @@ public class IncidenceMatrixGraph extends AbstractGraph {
         return res;
     }
 
-    /**
-     * Returns set of edges in graph.
-     *
-     * @return set of edges
-     */
     @Override
     public Set<Edge> getEdges() {
-        return edges;
+        return edgeToIndex.keySet();
     }
 
-    /**
-     * Returns set of nodes in graph.
-     *
-     * @return set of nodes
-     */
     @Override
     public Set<Integer> getNodes() {
-        return nodes;
+        return nodeToIndex.keySet();
     }
 }

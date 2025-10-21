@@ -1,67 +1,37 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Set;
 import org.junit.jupiter.api.Test;
+import ru.nsu.sharapov.AdjacencyListGraph;
 import ru.nsu.sharapov.AdjacencyMatrixGraph;
 import ru.nsu.sharapov.Edge;
+import ru.nsu.sharapov.Graph;
+import ru.nsu.sharapov.IncidenceMatrixGraph;
 
-public class AdjacencyMatrixGraphTest {
+public class AdjacencyMatrixGraphTest extends GraphTest {
 
-    @Test
-    void addNode() {
-        Integer n = 3;
-        Integer e = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
-        graph.addNode(0);
-        graph.addNode(1);
-        graph.addNode(2);
-        assertEquals(Set.of(0, 1, 2), graph.getNodes());
+    /**
+     * Gives new graph object.
+     *
+     * @return graph
+     */
+    @Override
+    public Graph getGraph() {
+        return new AdjacencyMatrixGraph();
     }
 
     @Test
-    void removeNode() {
-        Integer n = 3;
-        Integer e = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
-        graph.addEdge(new Edge(0, 1));
-        graph.addEdge(new Edge(1, 2));
-        graph.addEdge(new Edge(2, 0));
-        graph.removeNode(2);
-        assertEquals(Set.of(0, 1), graph.getNodes());
-        assertEquals(Set.of(new Edge(0, 1)), graph.getEdges());
-    }
+    void compare() {
+        AdjacencyListGraph graph1 = new AdjacencyListGraph();
+        AdjacencyMatrixGraph graph2 = new AdjacencyMatrixGraph();
+        IncidenceMatrixGraph graph3 = new IncidenceMatrixGraph();
 
-    @Test
-    void addEdge() {
-        Integer n = 3;
-        Integer e = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
-        graph.addEdge(new Edge(0, 1));
-        graph.addEdge(new Edge(1, 2));
-        graph.addEdge(new Edge(2, 0));
-        assertEquals(Set.of(new Edge(0, 1), new Edge(1, 2), new Edge(2, 0)), graph.getEdges());
-    }
+        Edge[] edges = {new Edge(0, 1), new Edge(1, 2), new Edge(2, 0)};
+        for (Edge edge : edges) {
+            graph1.addEdge(edge);
+            graph2.addEdge(edge);
+            graph3.addEdge(edge);
+        }
 
-    @Test
-    void removeEdge() {
-        Integer n = 3;
-        Integer e = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
-        graph.addEdge(new Edge(0, 1));
-        graph.addEdge(new Edge(1, 2));
-        graph.addEdge(new Edge(2, 0));
-        graph.removeEdge(new Edge(0, 1));
-        assertEquals(Set.of(new Edge(1, 2), new Edge(2, 0)), graph.getEdges());
-    }
-
-    @Test
-    void getNeighbours() {
-        Integer n = 3;
-        Integer e = 3;
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n, e);
-        graph.addEdge(new Edge(0, 1));
-        graph.addEdge(new Edge(1, 2));
-        graph.addEdge(new Edge(2, 0));
-        assertEquals(Set.of(1), graph.getNeighbours(0));
+        assertEquals(graph2, graph3);
     }
 }
