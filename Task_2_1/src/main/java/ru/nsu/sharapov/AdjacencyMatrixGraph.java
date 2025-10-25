@@ -29,21 +29,10 @@ public class AdjacencyMatrixGraph extends AbstractGraph {
     }
 
     @Override
-    public <T extends Graph> T readFromFile(String filename, Class<T> graphType) {
-        T graph = super.readFromFile(filename, graphType);
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            String str;
-            while ((str = reader.readLine()) != null) {
-                String[] from_to = str.split(" ");
-                Integer from = Integer.parseInt(from_to[0]);
-                Integer to = Integer.parseInt(from_to[1]);
-                graph.addEdge(new Edge(from, to));
-            }
-            return graph;
-
-        } catch (IOException e) {
-            throw new RuntimeException("File error: " + e.getMessage(), e);
-        }
+    public AdjacencyMatrixGraph readFromFile(String filename) {
+        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph();
+        fillFromFile(filename, graph);
+        return graph;
     }
 
     @Override

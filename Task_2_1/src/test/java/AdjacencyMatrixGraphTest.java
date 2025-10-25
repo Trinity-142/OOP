@@ -32,6 +32,7 @@ public class AdjacencyMatrixGraphTest extends GraphTest {
             graph3.addEdge(edge);
         }
 
+        assertEquals(graph2, graph1);
         assertEquals(graph2, graph3);
     }
 }

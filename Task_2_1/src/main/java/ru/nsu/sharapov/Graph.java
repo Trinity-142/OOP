@@ -47,25 +47,25 @@ public interface Graph {
     Integer getNodesCount();
 
     /**
-     * Returns set of neighbour nodes for specified node. If node hasn't any neighbours, returns
-     * empty set.
+     * Returns set of neighbour nodes for specified node.
      *
      * @param node node to get neighbours for
-     * @return set of neighbour nodes
+     * @return set of neighbour nodes. If node hasn't any neighbours, returns empty set.
      */
     Set<Integer> getNeighbours(Integer node);
 
     /**
-     * Returns set of edges in graph. If graph hasn't any edges, returns empty set.
+     * Returns set of edges in graph.
      *
-     * @return set of edges
+     * @return set of edges. If graph hasn't any edges, returns empty set
+     *
      */
     Set<Edge> getEdges();
 
     /**
-     * Returns set of nodes in graph. If graph hasn't any nodes, returns empty set.
+     * Returns set of nodes in graph.
      *
-     * @return set of nodes
+     * @return set of nodes. If graph hasn't any nodes, returns empty set
      */
     Set<Integer> getNodes();
 
@@ -73,10 +73,17 @@ public interface Graph {
      * Reads graph data from file and creates specified graph type instance.
      *
      * @param filename  text file with graph data in "vertices edges" and "from to" format
-     * @param graphType type of graph to create
      * @return new graph instance filled with data from file
      */
-    <T extends Graph> T readFromFile(String filename, Class<T> graphType);
+    Graph readFromFile(String filename);
+
+    /**
+     * Fills graph with data from file.
+     *
+     * @param filename text file with graph data in "vertices edges" and "from to" format
+     * @param graph graph instance
+     */
+    void fillFromFile(String filename, Graph graph);
 
     /**
      * Equals override.

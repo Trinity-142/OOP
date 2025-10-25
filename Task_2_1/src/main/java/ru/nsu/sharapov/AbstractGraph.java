@@ -1,5 +1,8 @@
 package ru.nsu.sharapov;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.Set;
 
@@ -8,15 +11,19 @@ import java.util.Set;
  */
 public abstract class AbstractGraph implements Graph {
 
-    public <T extends Graph> T readFromFile(String filename, Class<T> graphType) {
-        T graph;
-        try {
-            Constructor<T> constructor = graphType.getDeclaredConstructor();
-            graph = constructor.newInstance();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to create graph");
+    @Override
+    public void fillFromFile(String filename, Graph graph) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String str;
+            while ((str = reader.readLine()) != null) {
+                String[] from_to = str.split(" ");
+                Integer from = Integer.parseInt(from_to[0]);
+                Integer to = Integer.parseInt(from_to[1]);
+                graph.addEdge(new Edge(from, to));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("File error: " + e.getMessage(), e);
         }
-        return graph;
     }
 
     @Override
@@ -30,6 +37,8 @@ public abstract class AbstractGraph implements Graph {
             return false;
         }
     }
+
+    public abstract Graph readFromFile(String filename);
 
     public abstract String toString();
 

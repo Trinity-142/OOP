@@ -32,6 +32,7 @@ public class IncidenceMatrixGraphTest extends GraphTest {
             graph3.addEdge(edge);
         }
 
-        assertEquals(graph1, graph3);
+        assertEquals(graph3, graph1);
+        assertEquals(graph3, graph2);
     }
 }

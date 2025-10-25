@@ -33,5 +33,6 @@ public class AdjacencyListGraphTest extends GraphTest {
         }
 
         assertEquals(graph1, graph2);
+        assertEquals(graph1, graph3);
     }
 }
