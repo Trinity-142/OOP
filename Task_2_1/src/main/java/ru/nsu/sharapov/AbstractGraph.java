@@ -12,14 +12,14 @@ import java.util.Set;
 public abstract class AbstractGraph implements Graph {
 
     @Override
-    public void fillFromFile(String filename, Graph graph) {
+    public void fillFromFile(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String str;
             while ((str = reader.readLine()) != null) {
                 String[] from_to = str.split(" ");
                 Integer from = Integer.parseInt(from_to[0]);
                 Integer to = Integer.parseInt(from_to[1]);
-                graph.addEdge(new Edge(from, to));
+                this.addEdge(new Edge(from, to));
             }
         } catch (IOException e) {
             throw new RuntimeException("File error: " + e.getMessage(), e);
@@ -38,7 +38,7 @@ public abstract class AbstractGraph implements Graph {
         }
     }
 
-    public abstract Graph readFromFile(String filename);
+    public abstract void readFromFile(String filename);
 
     public abstract String toString();
 

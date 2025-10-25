@@ -75,15 +75,14 @@ public interface Graph {
      * @param filename  text file with graph data in "vertices edges" and "from to" format
      * @return new graph instance filled with data from file
      */
-    Graph readFromFile(String filename);
+    void readFromFile(String filename);
 
     /**
      * Fills graph with data from file.
      *
      * @param filename text file with graph data in "vertices edges" and "from to" format
-     * @param graph graph instance
      */
-    void fillFromFile(String filename, Graph graph);
+    void fillFromFile(String filename);
 
     /**
      * Equals override.

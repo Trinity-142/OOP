@@ -29,10 +29,8 @@ public class AdjacencyMatrixGraph extends AbstractGraph {
     }
 
     @Override
-    public AdjacencyMatrixGraph readFromFile(String filename) {
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph();
-        fillFromFile(filename, graph);
-        return graph;
+    public void readFromFile(String filename) {
+        this.fillFromFile(filename);
     }
 
     @Override

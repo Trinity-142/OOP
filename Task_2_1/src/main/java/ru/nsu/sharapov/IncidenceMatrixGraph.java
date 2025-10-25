@@ -29,10 +29,8 @@ public class IncidenceMatrixGraph extends AbstractGraph {
     }
 
     @Override
-    public IncidenceMatrixGraph readFromFile(String filename) {
-        IncidenceMatrixGraph graph = new IncidenceMatrixGraph();
-        fillFromFile(filename, graph);
-        return graph;
+    public void readFromFile(String filename) {
+        fillFromFile(filename);
     }
 
     @Override

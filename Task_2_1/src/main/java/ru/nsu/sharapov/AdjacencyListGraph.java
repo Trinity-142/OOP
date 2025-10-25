@@ -26,10 +26,8 @@ public class AdjacencyListGraph extends AbstractGraph {
     }
 
     @Override
-    public AdjacencyListGraph readFromFile(String filename) {
-        AdjacencyListGraph graph = new AdjacencyListGraph();
-        fillFromFile(filename, graph);
-        return graph;
+    public void readFromFile(String filename) {
+        this.fillFromFile(filename);
     }
 
     @Override

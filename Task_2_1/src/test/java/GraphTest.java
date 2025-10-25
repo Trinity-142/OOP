@@ -73,7 +73,7 @@ abstract public class GraphTest {
     @Test
     void readGraphFromFile() {
         graph = getGraph();
-        graph = graph.readFromFile(graphFile);
+        graph.readFromFile(graphFile);
         assertEquals(Set.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9), graph.getNodes());
         assertEquals(
             Set.of(new Edge(0, 1), new Edge(0, 2), new Edge(0, 3), new Edge(1, 3), new Edge(2, 4),
@@ -98,14 +98,14 @@ abstract public class GraphTest {
     @Test
     void cycleGraphTopoSort() {
         graph = getGraph();
-        graph = graph.readFromFile(cycleGraphFile);
+        graph.readFromFile(cycleGraphFile);
         assertThrows(IllegalArgumentException.class, () -> TopoSort.sort(graph));
     }
 
     @Test
     void sortAdjListGraph() {
         graph = getGraph();
-        graph = graph.readFromFile(graphFile);
+        graph.readFromFile(graphFile);
         List<Integer> sorted = TopoSort.sort(graph);
         for (Edge edge : graph.getEdges()) {
             int u = edge.from();
