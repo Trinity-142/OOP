@@ -73,7 +73,6 @@ public interface Graph {
      * Reads graph data from file and creates specified graph type instance.
      *
      * @param filename  text file with graph data in "vertices edges" and "from to" format
-     * @return new graph instance filled with data from file
      */
     void readFromFile(String filename);
 
